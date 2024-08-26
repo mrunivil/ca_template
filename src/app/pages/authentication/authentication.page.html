@@ -1,0 +1,11 @@
+<main class="flex h-svh w-full justify-center items-center flex-col">
+  <div class="p-8 flex flex-col gap-4">
+    <button
+      (click)="signIn()"
+      class="px-8 py-4 rounded-xl flex items-center text-xl font-bold bg-teal-600 text-white"
+      [class]="(loading$|async) ? 'animate-pulse':''"
+    >
+      @if(loading$|async){ ... }@else { Login }
+    </button>
+  </div>
+</main>

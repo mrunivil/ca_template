@@ -1,5 +1,11 @@
-<section
-  class="w-full p-8 flex justify-center text-6xl font-bold text-white bg-teal-600"
+<header
+  class="w-full p-8 flex justify-center text-6xl font-bold text-white bg-teal-600 relative"
 >
-  Clean - Counter
-</section>
+  <label>Clean - Counter</label>
+  <button
+    (click)="onSignOut.emit()"
+    class="px-8 py-4 rounded-xl flex items-center text-xl font-bold border border-white text-white fixed right-8"
+  >
+    Sign Out
+  </button>
+</header>
