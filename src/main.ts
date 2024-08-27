@@ -12,6 +12,7 @@ const bootstrap = () =>
   bootstrapApplication(AppComponent, appConfig).catch((err) =>
     console.error(err)
   );
+console.log(environment.useMock);
 
 const MOCK_HANDLER = [
   ...COUNT_FEATURE_MOCK_HANDLER,

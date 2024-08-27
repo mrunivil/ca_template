@@ -33,6 +33,15 @@
             "scripts": []
           },
           "configurations": {
+            "e2e": {
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.e2e.ts"
+                }
+              ]
+            },
             "production": {
               "budgets": [
                 {
@@ -71,6 +80,9 @@
             },
             "development": {
               "buildTarget": "ca_template:build:development"
+            },
+            "e2e": {
+              "buildTarget": "ca_template:build:e2e"
             }
           },
           "defaultConfiguration": "development"
@@ -93,8 +105,56 @@
             "styles": ["src/styles.scss"],
             "scripts": []
           }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "ca_template:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ca_template:serve:e2e"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "ct": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "ca_template:serve",
+            "watch": true,
+            "headless": false,
+            "testingType": "component"
+          },
+          "configurations": {
+            "development": {
+              "devServerTarget": "ca_template:serve:development"
+            }
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "ca_template:serve:e2e",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ca_template:serve:e2e"
+            }
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": ["@cypress/schematic", "@schematics/angular"]
   }
 }

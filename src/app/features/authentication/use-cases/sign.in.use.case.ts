@@ -10,6 +10,6 @@ export class SignInUseCase implements UseCase<SignInRequestObject, UserEntity> {
   private readonly repository = inject(AbstractAuthenticationRepository);
 
   execute(params?: SignInRequestObject) {
-    return this.repository.signin(params);
+    return this.repository.signIn(params);
   }
 }

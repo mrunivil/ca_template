@@ -8,6 +8,6 @@ export class SignOutUseCase implements UseCase<undefined, void> {
   private readonly repository = inject(AbstractAuthenticationRepository);
 
   execute() {
-    return this.repository.signout();
+    return this.repository.signOut();
   }
 }

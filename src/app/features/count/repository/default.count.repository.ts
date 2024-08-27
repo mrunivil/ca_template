@@ -12,8 +12,10 @@ export class DefaultCountRepository extends AbstractCountRepository {
     try {
       const raw = await this.dataSource.getCount();
       return NumberEntity.fromJson(raw);
-    } catch (error) {
-      return new Error('server Error');
+    } catch (error: any) {
+      return new Error(
+        error.statusText ?? error.message ?? 'Etwas ist schief gelaufen'
+      );
     }
   }
 
@@ -21,8 +23,10 @@ export class DefaultCountRepository extends AbstractCountRepository {
     try {
       const raw = await this.dataSource.increaseCount();
       return NumberEntity.fromJson(raw);
-    } catch (error) {
-      return new Error('server Error');
+    } catch (error: any) {
+      return new Error(
+        error.statusText ?? error.message ?? 'Etwas ist schief gelaufen'
+      );
     }
   }
 
@@ -30,8 +34,10 @@ export class DefaultCountRepository extends AbstractCountRepository {
     try {
       const raw = await this.dataSource.decreaseCount();
       return NumberEntity.fromJson(raw);
-    } catch (error) {
-      return new Error('server Error');
+    } catch (error: any) {
+      return new Error(
+        error.statusText ?? error.message ?? 'Etwas ist schief gelaufen'
+      );
     }
   }
 }

@@ -5,6 +5,6 @@ import { SignInRequestObject } from '../authentication.feature.module';
 
 @Injectable()
 export abstract class AbstractAuthenticationRepository {
-  abstract signin(params?: SignInRequestObject): Promise<UserEntity | Error>;
-  abstract signout(): Promise<void | Error>;
+  abstract signIn(params?: SignInRequestObject): Promise<UserEntity | Error>;
+  abstract signOut(): Promise<void | Error>;
 }

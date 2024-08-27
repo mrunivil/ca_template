@@ -4,6 +4,6 @@ import { SignInRequestObject } from '../authentication.feature.module';
 
 @Injectable()
 export abstract class AbstractAuthenticationDataSource {
-  abstract signin(params: SignInRequestObject): Promise<any>;
-  abstract signout(): Promise<any>;
+  abstract signIn(params: SignInRequestObject): Promise<any>;
+  abstract signOut(): Promise<any>;
 }

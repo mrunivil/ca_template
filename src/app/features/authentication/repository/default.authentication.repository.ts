@@ -9,24 +9,28 @@ import { AbstractAuthenticationRepository } from './abstract.authentication.repo
 export class DefaultAuthenticationRepository extends AbstractAuthenticationRepository {
   private readonly dataSource = inject(AbstractAuthenticationDataSource);
 
-  override async signin(
+  override async signIn(
     params?: SignInRequestObject
   ): Promise<UserEntity | Error> {
     if (!params) return new Error('missing params');
 
     try {
-      const raw = await this.dataSource.signin(params);
+      const raw = await this.dataSource.signIn(params);
       return UserEntity.fromJson(raw);
-    } catch (error) {
-      return error as Error;
+    } catch (error: any) {
+      return new Error(
+        error.statusText ?? error.message ?? 'Etwas ist schief gelaufen'
+      );
     }
   }
 
-  override async signout(): Promise<void | Error> {
+  override async signOut(): Promise<void | Error> {
     try {
-      return await this.dataSource.signout();
-    } catch (error) {
-      return error as Error;
+      return await this.dataSource.signOut();
+    } catch (error: any) {
+      return new Error(
+        error.statusText ?? error.message ?? 'Etwas ist schief gelaufen'
+      );
     }
   }
 }

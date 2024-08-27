@@ -14,11 +14,11 @@ export const signOutEndPoint = `${environment.backend}/sign-out`;
 export class DefaultAuthenticationDataSource extends AbstractAuthenticationDataSource {
   private readonly http = inject(HttpClient);
 
-  override async signin(params: SignInRequestObject): Promise<any> {
+  override async signIn(params: SignInRequestObject): Promise<any> {
     return lastValueFrom(this.http.post(signInEndPoint, { params }));
   }
 
-  override signout(): Promise<any> {
+  override signOut(): Promise<any> {
     return lastValueFrom(this.http.post(signOutEndPoint, {}));
   }
 }
