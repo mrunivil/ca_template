@@ -1,7 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 
 import { UserEntity } from '../../../core/entities/user.entity';
-import { SignInRequestObject } from '../authentication.feature.module';
 import { AbstractAuthenticationDataSource } from '../data-source/abstract.authentication.data.source';
 import { AbstractAuthenticationRepository } from './abstract.authentication.repository';
 
@@ -9,13 +8,9 @@ import { AbstractAuthenticationRepository } from './abstract.authentication.repo
 export class DefaultAuthenticationRepository extends AbstractAuthenticationRepository {
   private readonly dataSource = inject(AbstractAuthenticationDataSource);
 
-  override async signIn(
-    params?: SignInRequestObject
-  ): Promise<UserEntity | Error> {
-    if (!params) return new Error('missing params');
-
+  override async signIn(): Promise<UserEntity | Error> {
     try {
-      const raw = await this.dataSource.signIn(params);
+      const raw = await this.dataSource.signIn();
       return UserEntity.fromJson(raw);
     } catch (error: any) {
       return new Error(
