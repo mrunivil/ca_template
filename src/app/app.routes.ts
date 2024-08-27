@@ -1,18 +1,20 @@
 import { Routes } from '@angular/router';
 
 import { isAuthenticated } from './core/guards/is.authenticated.guard';
-import { AuthenticationPage } from './pages/authentication/authentication.page';
-import { DashboardPage } from './pages/dashboard/dashboard.page';
 
 export const routes: Routes = [
   {
     path: 'dashboard',
-    loadComponent: () => DashboardPage,
+    loadComponent: () =>
+      import('./pages/dashboard/dashboard.page').then((m) => m.DashboardPage),
     canActivate: [isAuthenticated],
   },
   {
     path: 'authentication',
-    loadComponent: () => AuthenticationPage,
+    loadComponent: () =>
+      import('./pages/authentication/authentication.page').then(
+        (m) => m.AuthenticationPage
+      ),
   },
   {
     path: '',
