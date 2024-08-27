@@ -14,10 +14,11 @@ import { Authentication } from '../../state/authentication/authentication.state.
 import { Count } from '../../state/count/count.state.actions';
 import { CountStateModule } from '../../state/count/count.state.module';
 import { CountStateSelectors } from '../../state/count/count.state.selectors';
+import { CounterComponent } from './components/counter/counter.component';
 import { HeaderComponent } from './components/header/header.component';
 
 @Component({
-  imports: [CommonModule, CountStateModule, HeaderComponent],
+  imports: [CommonModule, CountStateModule, HeaderComponent, CounterComponent],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './dashboard.page.html',

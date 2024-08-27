@@ -1,25 +1,11 @@
-<main class="h-full w-full flex flex-col">
+<main class="h-full w-full flex flex-col gap-16">
   <app-header (onSignOut)="signOut()"></app-header>
 
-  <section
-    class="w-full h-full grow flex flex-col items-center justify-center gap-16"
-  >
-    <button
-      data-cy="counter-increase"
-      (click)="increaseCount()"
-      class="p-4 rounded-xl flex items-center text-4xl font-bold bg-teal-600 text-white"
-    >
-      <i class="material-symbols-outlined">add</i>
-    </button>
-    <label data-cy="counter" class="font-bold text-gray-600 text-6xl">
-      COUNTER: {{(counter$|async)?.value}}
-    </label>
-    <button
-      data-cy="counter-decrease"
-      (click)="decreaseCount()"
-      class="p-4 rounded-xl flex items-center text-4xl font-bold bg-cyan-600 text-white"
-    >
-      <i class="material-symbols-outlined">remove</i>
-    </button>
-  </section>
+  <div class="h-full w-full">
+    <app-counter
+      [value]="counter$|async"
+      (decreaseCounter)="decreaseCount()"
+      (increaseCounter)="increaseCount()"
+    ></app-counter>
+  </div>
 </main>

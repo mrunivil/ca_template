@@ -1,0 +1,21 @@
+<section
+  class="w-full h-full grow flex flex-col items-center justify-center gap-16"
+>
+  <button
+    data-cy="counter-increase"
+    (click)="increaseCounter.emit()"
+    class="p-4 rounded-xl flex items-center text-4xl font-bold bg-teal-600 text-white"
+  >
+    <i class="material-symbols-outlined">add</i>
+  </button>
+  <label data-cy="counter" class="font-bold text-gray-600 text-6xl">
+    COUNTER: {{ value()?.value }}
+  </label>
+  <button
+    data-cy="counter-decrease"
+    (click)="decreaseCounter.emit()"
+    class="p-4 rounded-xl flex items-center text-4xl font-bold bg-cyan-600 text-white"
+  >
+    <i class="material-symbols-outlined">remove</i>
+  </button>
+</section>

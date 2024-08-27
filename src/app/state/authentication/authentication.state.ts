@@ -23,7 +23,7 @@ export class AuthenticationState {
     patchState({
       loading: true,
     });
-    const ret = await this.signInUseCase.execute({});
+    const ret = await this.signInUseCase.execute();
     if (ret instanceof Error) {
       patchState({
         currentUser: undefined,
