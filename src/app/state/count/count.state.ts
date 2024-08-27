@@ -1,9 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { Action, State, StateContext } from '@ngxs/store';
 
-import { DecreaseCountUseCase } from '../../features/count/use-cases/decrease.use.case';
-import { GetCountUseCase } from '../../features/count/use-cases/get.use.case';
-import { IncreaseCountUseCase } from '../../features/count/use-cases/increase.use.case';
+import { DecreaseCounterUseCase } from '../../features/count/use-cases/decrease.counter.use.case';
+import { GetCounterUseCase } from '../../features/count/use-cases/get.counter.use.case';
+import { IncreaseCounterUseCase } from '../../features/count/use-cases/increase.counter.use.case';
 import { Count } from './count.state.actions';
 import { CountStateModel } from './count.state.model';
 import { CountStateModule } from './count.state.module';
@@ -16,9 +16,9 @@ import { CountStateModule } from './count.state.module';
 })
 @Injectable({ providedIn: CountStateModule })
 export class CountState {
-  private readonly getCountUseCase = inject(GetCountUseCase);
-  private readonly increaseCountUseCaseoid = inject(IncreaseCountUseCase);
-  private readonly decreaseCountUseCaseoid = inject(DecreaseCountUseCase);
+  private readonly getCountUseCase = inject(GetCounterUseCase);
+  private readonly increaseCountUseCaseoid = inject(IncreaseCounterUseCase);
+  private readonly decreaseCountUseCaseoid = inject(DecreaseCounterUseCase);
 
   @Action(Count.GetCountAction)
   async getCount({ patchState }: StateContext<CountStateModel>) {

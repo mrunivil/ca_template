@@ -5,7 +5,7 @@ import { UseCase } from '../../../core/use.case.interface';
 import { AbstractCountRepository } from '../repository/abstract.count.repository';
 
 @Injectable()
-export class GetCountUseCase implements UseCase<unknown, NumberEntity> {
+export class GetCounterUseCase implements UseCase<unknown, NumberEntity> {
   private readonly repository = inject(AbstractCountRepository);
 
   execute() {

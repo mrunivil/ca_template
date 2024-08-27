@@ -1,11 +1,10 @@
 import {
-  HttpClientTestingModule,
   HttpTestingController,
   provideHttpClientTesting,
 } from '@angular/common/http/testing';
 
 // Other imports
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { AuthenticationFeatureModule } from '../authentication.feature.module';
 import { AbstractAuthenticationDataSource } from '../data-source/abstract.authentication.data.source';
@@ -21,8 +20,8 @@ describe('Sign Out Feature', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [provideHttpClientTesting()],
-      imports: [AuthenticationFeatureModule, HttpClientTestingModule],
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+      imports: [AuthenticationFeatureModule],
     });
     httpClient = TestBed.inject(HttpClient);
     httpTestingController = TestBed.inject(HttpTestingController);
