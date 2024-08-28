@@ -1,0 +1,3230 @@
+{
+    "pipes": [],
+    "interfaces": [
+        {
+            "name": "UseCase",
+            "id": "interface-UseCase-03ce86a376c2a8e22dfb88b5bf8e2aa052c086de85a8429a2fff1806f644a0230a6c4a0338b28c5ee2cf4163b904e1b2b6f2f19d9fc2911933c6203ef447b8ec",
+            "file": "src/app/core/use.case.interface.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface UseCase<T = unknown, R = void> {\r\n  execute(params?: T): Promise<R | Error>;\r\n}\r\n",
+            "properties": [],
+            "indexSignatures": [],
+            "kind": 173,
+            "methods": [
+                {
+                    "name": "execute",
+                    "args": [
+                        {
+                            "name": "params",
+                            "type": "T",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Promise<R | Error>",
+                    "typeParameters": [],
+                    "line": 2,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "params",
+                            "type": "T",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "extends": []
+        }
+    ],
+    "injectables": [
+        {
+            "name": "AbstractAuthenticationDataSource",
+            "id": "injectable-AbstractAuthenticationDataSource-8329962c564391112a6c8567703ac79ffc782b67c83d9728866c9de0f3af3dc31c78aedca18971b47a5be48902d0173889f8bc1b641b0b606518f437b82027db",
+            "file": "src/app/features/authentication/data-source/abstract.authentication.data.source.ts",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "signIn",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<any>",
+                    "typeParameters": [],
+                    "line": 5,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        128
+                    ]
+                },
+                {
+                    "name": "signOut",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<any>",
+                    "typeParameters": [],
+                    "line": 6,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        128
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\n\r\n@Injectable()\r\nexport abstract class AbstractAuthenticationDataSource {\r\n  abstract signIn(): Promise<any>;\r\n  abstract signOut(): Promise<any>;\r\n}\r\n",
+            "extends": [],
+            "type": "injectable"
+        },
+        {
+            "name": "AbstractAuthenticationRepository",
+            "id": "injectable-AbstractAuthenticationRepository-9b8aeda82682e2db134049892346260426e939a67794370a149421ae26f38a6c7a8dc1f81978939b493e3e26d5ed6e70ae6f1ca76fec86f0cee4ed5006b6a4d3",
+            "file": "src/app/features/authentication/repository/abstract.authentication.repository.ts",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "signIn",
+                    "args": [
+                        {
+                            "name": "params",
+                            "type": "SignInRequestObject",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Promise<UserEntity | Error>",
+                    "typeParameters": [],
+                    "line": 8,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        128
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "params",
+                            "type": "SignInRequestObject",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "signOut",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<void | Error>",
+                    "typeParameters": [],
+                    "line": 9,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        128
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\n\r\nimport { UserEntity } from '../../../core/entities/user.entity';\r\nimport { SignInRequestObject } from '../authentication.feature.module';\r\n\r\n@Injectable()\r\nexport abstract class AbstractAuthenticationRepository {\r\n  abstract signIn(params?: SignInRequestObject): Promise<UserEntity | Error>;\r\n  abstract signOut(): Promise<void | Error>;\r\n}\r\n",
+            "extends": [],
+            "type": "injectable"
+        },
+        {
+            "name": "AbstractCounterDataSource",
+            "id": "injectable-AbstractCounterDataSource-2ea91f4df467dd72e3b4da0cc45b15289d53caeec267db1507023ea13b4943bbd6ba017e902d1fa4c813200f0cf98c210da430b2e84c3abf0cea254c1fda6c15",
+            "file": "src/app/features/count/data-source/abstract.count.data.source.ts",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "decreaseCounter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<string>",
+                    "typeParameters": [],
+                    "line": 7,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        128
+                    ]
+                },
+                {
+                    "name": "getCounter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<string>",
+                    "typeParameters": [],
+                    "line": 5,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        128
+                    ]
+                },
+                {
+                    "name": "increaseCounter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<string>",
+                    "typeParameters": [],
+                    "line": 6,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        128
+                    ]
+                },
+                {
+                    "name": "resetCounter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<string>",
+                    "typeParameters": [],
+                    "line": 8,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        128
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\n\r\n@Injectable()\r\nexport abstract class AbstractCounterDataSource {\r\n  abstract getCounter(): Promise<string>;\r\n  abstract increaseCounter(): Promise<string>;\r\n  abstract decreaseCounter(): Promise<string>;\r\n  abstract resetCounter(): Promise<string>;\r\n}\r\n",
+            "extends": [],
+            "type": "injectable"
+        },
+        {
+            "name": "AbstractCounterRepository",
+            "id": "injectable-AbstractCounterRepository-93eab22f8edfe76f1169f39cf4697f9611661cd7b6cfd9cfd575a7b9a819a3c697a74a7f97f638bdfc12e66375ae45162ac205b10f911166a272ee7a5c0eacc2",
+            "file": "src/app/features/count/repository/abstract.counter.repository.ts",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "decreaseCounter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<NumberEntity | Error>",
+                    "typeParameters": [],
+                    "line": 9,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        128
+                    ]
+                },
+                {
+                    "name": "getCounter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<NumberEntity | Error>",
+                    "typeParameters": [],
+                    "line": 7,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        128
+                    ]
+                },
+                {
+                    "name": "increaseCounter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<NumberEntity | Error>",
+                    "typeParameters": [],
+                    "line": 8,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        128
+                    ]
+                },
+                {
+                    "name": "resetCounter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<NumberEntity | Error>",
+                    "typeParameters": [],
+                    "line": 10,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        128
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\n\r\nimport { NumberEntity } from '../../../core/entities/number.entity';\r\n\r\n@Injectable()\r\nexport abstract class AbstractCounterRepository {\r\n  abstract getCounter(): Promise<NumberEntity | Error>;\r\n  abstract increaseCounter(): Promise<NumberEntity | Error>;\r\n  abstract decreaseCounter(): Promise<NumberEntity | Error>;\r\n  abstract resetCounter(): Promise<NumberEntity | Error>;\r\n}\r\n",
+            "extends": [],
+            "type": "injectable"
+        },
+        {
+            "name": "AuthenticationState",
+            "id": "injectable-AuthenticationState-1971fc4b00172db92ee9e6d49f8a68c00bbd03cd5f7e52dbeca7d36b3fa910d53e0c3c0019be91e552d3afca4dc0e299ac5fd41834155c3358fd07eb949fb6de",
+            "file": "src/app/state/authentication/authentication.state.ts",
+            "properties": [
+                {
+                    "name": "signInUseCase",
+                    "defaultValue": "inject(SignInUseCase)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                },
+                {
+                    "name": "signOutUseCase",
+                    "defaultValue": "inject(SignOutUseCase)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "signIn",
+                    "args": [
+                        {
+                            "type": "StateContext<AuthenticationStateModel>",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 22,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "Action",
+                            "stringifiedArguments": "Authentication.SignInAction"
+                        }
+                    ],
+                    "modifierKind": [
+                        170,
+                        134
+                    ],
+                    "jsdoctags": [
+                        {
+                            "type": "StateContext<AuthenticationStateModel>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "signOut",
+                    "args": [
+                        {
+                            "type": "StateContext<AuthenticationStateModel>",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 41,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "Action",
+                            "stringifiedArguments": "Authentication.SignOutAction"
+                        }
+                    ],
+                    "modifierKind": [
+                        170,
+                        134
+                    ],
+                    "jsdoctags": [
+                        {
+                            "type": "StateContext<AuthenticationStateModel>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { inject, Injectable } from '@angular/core';\r\nimport { Action, State, StateContext } from '@ngxs/store';\r\n\r\nimport { SignInUseCase } from '../../features/authentication/use-cases/sign.in.use.case';\r\nimport { SignOutUseCase } from '../../features/authentication/use-cases/sign.out.use.case';\r\nimport { Authentication } from './authentication.state.actions';\r\nimport { AuthenticationStateModel } from './authentication.state.model';\r\n\r\n@State<AuthenticationStateModel>({\r\n  name: 'auth',\r\n  defaults: {\r\n    currentUser: undefined,\r\n    loading: false,\r\n  },\r\n})\r\n@Injectable()\r\nexport class AuthenticationState {\r\n  private readonly signInUseCase = inject(SignInUseCase);\r\n  private readonly signOutUseCase = inject(SignOutUseCase);\r\n\r\n  @Action(Authentication.SignInAction)\r\n  async signIn({ patchState }: StateContext<AuthenticationStateModel>) {\r\n    patchState({\r\n      loading: true,\r\n    });\r\n    const ret = await this.signInUseCase.execute();\r\n    if (ret instanceof Error) {\r\n      patchState({\r\n        currentUser: undefined,\r\n        loading: false,\r\n      });\r\n    } else {\r\n      patchState({\r\n        currentUser: ret,\r\n        loading: false,\r\n      });\r\n    }\r\n  }\r\n\r\n  @Action(Authentication.SignOutAction)\r\n  async signOut({ patchState }: StateContext<AuthenticationStateModel>) {\r\n    patchState({\r\n      loading: true,\r\n    });\r\n    await this.signOutUseCase.execute();\r\n    patchState({\r\n      currentUser: undefined,\r\n      loading: false,\r\n    });\r\n  }\r\n}\r\n",
+            "extends": [],
+            "type": "injectable"
+        },
+        {
+            "name": "CounterState",
+            "id": "injectable-CounterState-095f609efa47d31397808542911e88f65bb15caa22963dba8a4f5965ab289f657898ac42835c326ee1aa03ddc100f8306017d0f26e80904d440cd36f4cbca143",
+            "file": "src/app/state/count/count.state.ts",
+            "properties": [
+                {
+                    "name": "decreaseCountUseCaseoid",
+                    "defaultValue": "inject(DecreaseCounterUseCase)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                },
+                {
+                    "name": "getCountUseCase",
+                    "defaultValue": "inject(GetCounterUseCase)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                },
+                {
+                    "name": "increaseCountUseCaseoid",
+                    "defaultValue": "inject(IncreaseCounterUseCase)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "decreaseCount",
+                    "args": [
+                        {
+                            "type": "StateContext<CountStateModel>",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 49,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "Action",
+                            "stringifiedArguments": "Counter.DecreaseCounterAction"
+                        }
+                    ],
+                    "modifierKind": [
+                        170,
+                        134
+                    ],
+                    "jsdoctags": [
+                        {
+                            "type": "StateContext<CountStateModel>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getCount",
+                    "args": [
+                        {
+                            "type": "StateContext<CountStateModel>",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 23,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "Action",
+                            "stringifiedArguments": "Counter.GetCounterAction"
+                        }
+                    ],
+                    "modifierKind": [
+                        170,
+                        134
+                    ],
+                    "jsdoctags": [
+                        {
+                            "type": "StateContext<CountStateModel>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "increaseCount",
+                    "args": [
+                        {
+                            "type": "StateContext<CountStateModel>",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 36,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "Action",
+                            "stringifiedArguments": "Counter.IncreaseCounterAction"
+                        }
+                    ],
+                    "modifierKind": [
+                        170,
+                        134
+                    ],
+                    "jsdoctags": [
+                        {
+                            "type": "StateContext<CountStateModel>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { inject, Injectable } from '@angular/core';\r\nimport { Action, State, StateContext } from '@ngxs/store';\r\n\r\nimport { DecreaseCounterUseCase } from '../../features/count/use-cases/decrease.counter.use.case';\r\nimport { GetCounterUseCase } from '../../features/count/use-cases/get.counter.use.case';\r\nimport { IncreaseCounterUseCase } from '../../features/count/use-cases/increase.counter.use.case';\r\nimport { Counter } from './count.state.actions';\r\nimport { CountStateModel } from './count.state.model';\r\n\r\n@State<CountStateModel>({\r\n  name: 'count',\r\n  defaults: {\r\n    count: { value: 0 },\r\n  },\r\n})\r\n@Injectable()\r\nexport class CounterState {\r\n  private readonly getCountUseCase = inject(GetCounterUseCase);\r\n  private readonly increaseCountUseCaseoid = inject(IncreaseCounterUseCase);\r\n  private readonly decreaseCountUseCaseoid = inject(DecreaseCounterUseCase);\r\n\r\n  @Action(Counter.GetCounterAction)\r\n  async getCount({ patchState }: StateContext<CountStateModel>) {\r\n    const ret = await this.getCountUseCase.execute();\r\n\r\n    if (ret instanceof Error) {\r\n      alert('Something went wrong 😮');\r\n    } else {\r\n      patchState({\r\n        count: ret,\r\n      });\r\n    }\r\n  }\r\n\r\n  @Action(Counter.IncreaseCounterAction)\r\n  async increaseCount({ patchState }: StateContext<CountStateModel>) {\r\n    const ret = await this.increaseCountUseCaseoid.execute();\r\n\r\n    if (ret instanceof Error) {\r\n      alert('Something went wrong 😮');\r\n    } else {\r\n      patchState({\r\n        count: ret,\r\n      });\r\n    }\r\n  }\r\n\r\n  @Action(Counter.DecreaseCounterAction)\r\n  async decreaseCount({ patchState }: StateContext<CountStateModel>) {\r\n    const ret = await this.decreaseCountUseCaseoid.execute();\r\n\r\n    if (ret instanceof Error) {\r\n      alert('Something went wrong 😮');\r\n    } else {\r\n      patchState({\r\n        count: ret,\r\n      });\r\n    }\r\n  }\r\n}\r\n",
+            "extends": [],
+            "type": "injectable"
+        },
+        {
+            "name": "DecreaseCounterUseCase",
+            "id": "injectable-DecreaseCounterUseCase-ba1cc4d5c43f27ffafdd1dba54a2c2b37f140cdc7131c29c56224e215bcf8f32ebe3eb578cd1dd01e72539cf43b9f54b0db875b65b56d94cfabecc6324ebc186",
+            "file": "src/app/features/count/use-cases/decrease.counter.use.case.ts",
+            "properties": [
+                {
+                    "name": "repository",
+                    "defaultValue": "inject(AbstractCounterRepository)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "execute",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 11,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { inject, Injectable } from '@angular/core';\r\n\r\nimport { NumberEntity } from '../../../core/entities/number.entity';\r\nimport { UseCase } from '../../../core/use.case.interface';\r\nimport { AbstractCounterRepository } from '../repository/abstract.counter.repository';\r\n\r\n@Injectable()\r\nexport class DecreaseCounterUseCase implements UseCase<unknown, NumberEntity> {\r\n  private readonly repository = inject(AbstractCounterRepository);\r\n\r\n  execute() {\r\n    return this.repository.decreaseCounter();\r\n  }\r\n}\r\n",
+            "extends": [],
+            "type": "injectable"
+        },
+        {
+            "name": "DefaultAuthenticationDataSource",
+            "id": "injectable-DefaultAuthenticationDataSource-b8ec3fd5da584706a156bd05e79b13ea0042771fc2887effe540564f6f339c1d533d6068a630f67f9d96bda8cdcd36bfd9c6d4848922cf11a0c03ad1e08d7bc7",
+            "file": "src/app/features/authentication/data-source/default.authentication.data.source.ts",
+            "properties": [
+                {
+                    "name": "http",
+                    "defaultValue": "inject(HttpClient)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "signIn",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<any>",
+                    "typeParameters": [],
+                    "line": 16,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        164,
+                        134
+                    ],
+                    "inheritance": {
+                        "file": "AbstractAuthenticationDataSource"
+                    }
+                },
+                {
+                    "name": "signOut",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<any>",
+                    "typeParameters": [],
+                    "line": 20,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        164
+                    ],
+                    "inheritance": {
+                        "file": "AbstractAuthenticationDataSource"
+                    }
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { lastValueFrom } from 'rxjs';\r\n\r\nimport { HttpClient } from '@angular/common/http';\r\nimport { inject, Injectable } from '@angular/core';\r\n\r\nimport { environment } from '../../../../environments/environment';\r\nimport { AbstractAuthenticationDataSource } from './abstract.authentication.data.source';\r\n\r\nexport const signInEndPoint = `${environment.backend}/sign-in`;\r\nexport const signOutEndPoint = `${environment.backend}/sign-out`;\r\n\r\n@Injectable()\r\nexport class DefaultAuthenticationDataSource extends AbstractAuthenticationDataSource {\r\n  private readonly http = inject(HttpClient);\r\n\r\n  override async signIn(): Promise<any> {\r\n    return lastValueFrom(this.http.post(signInEndPoint, {}));\r\n  }\r\n\r\n  override signOut(): Promise<any> {\r\n    return lastValueFrom(this.http.post(signOutEndPoint, {}));\r\n  }\r\n}\r\n",
+            "extends": [
+                "AbstractAuthenticationDataSource"
+            ],
+            "type": "injectable"
+        },
+        {
+            "name": "DefaultAuthenticationRepository",
+            "id": "injectable-DefaultAuthenticationRepository-ee554fdae32a0631b77b57eeab395d931ddd1b1988ef589c4f36d55afb8b194639706be3ef11b1258a85de8703e4dd83b258974679535259b221bc91355955f8",
+            "file": "src/app/features/authentication/repository/default.authentication.repository.ts",
+            "properties": [
+                {
+                    "name": "dataSource",
+                    "defaultValue": "inject(AbstractAuthenticationDataSource)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "signIn",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<UserEntity | Error>",
+                    "typeParameters": [],
+                    "line": 11,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        164,
+                        134
+                    ],
+                    "inheritance": {
+                        "file": "AbstractAuthenticationRepository"
+                    }
+                },
+                {
+                    "name": "signOut",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<void | Error>",
+                    "typeParameters": [],
+                    "line": 22,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        164,
+                        134
+                    ],
+                    "inheritance": {
+                        "file": "AbstractAuthenticationRepository"
+                    }
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { inject, Injectable } from '@angular/core';\r\n\r\nimport { UserEntity } from '../../../core/entities/user.entity';\r\nimport { AbstractAuthenticationDataSource } from '../data-source/abstract.authentication.data.source';\r\nimport { AbstractAuthenticationRepository } from './abstract.authentication.repository';\r\n\r\n@Injectable()\r\nexport class DefaultAuthenticationRepository extends AbstractAuthenticationRepository {\r\n  private readonly dataSource = inject(AbstractAuthenticationDataSource);\r\n\r\n  override async signIn(): Promise<UserEntity | Error> {\r\n    try {\r\n      const raw = await this.dataSource.signIn();\r\n      return UserEntity.fromJson(raw);\r\n    } catch (error: any) {\r\n      return new Error(\r\n        error.statusText ?? error.message ?? 'Etwas ist schief gelaufen'\r\n      );\r\n    }\r\n  }\r\n\r\n  override async signOut(): Promise<void | Error> {\r\n    try {\r\n      return await this.dataSource.signOut();\r\n    } catch (error: any) {\r\n      return new Error(\r\n        error.statusText ?? error.message ?? 'Etwas ist schief gelaufen'\r\n      );\r\n    }\r\n  }\r\n}\r\n",
+            "extends": [
+                "AbstractAuthenticationRepository"
+            ],
+            "type": "injectable"
+        },
+        {
+            "name": "DefaultCounterDataSource",
+            "id": "injectable-DefaultCounterDataSource-c1efd376ad6f02ba77cc2fb9881677a9f6dc9fc189b263e549f44821ac23ef7730f07c04a7565ed8b9ce6fd4097576d0467243a5b98bfc2ebe59d36ac1c83959",
+            "file": "src/app/features/count/data-source/default.count.data.source.ts",
+            "properties": [
+                {
+                    "name": "http",
+                    "defaultValue": "inject(HttpClient)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "decreaseCounter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<string>",
+                    "typeParameters": [],
+                    "line": 26,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        164,
+                        134
+                    ],
+                    "inheritance": {
+                        "file": "AbstractCounterDataSource"
+                    }
+                },
+                {
+                    "name": "getCounter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<string>",
+                    "typeParameters": [],
+                    "line": 18,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        164,
+                        134
+                    ],
+                    "inheritance": {
+                        "file": "AbstractCounterDataSource"
+                    }
+                },
+                {
+                    "name": "increaseCounter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<string>",
+                    "typeParameters": [],
+                    "line": 21,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        164,
+                        134
+                    ],
+                    "inheritance": {
+                        "file": "AbstractCounterDataSource"
+                    }
+                },
+                {
+                    "name": "resetCounter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<string>",
+                    "typeParameters": [],
+                    "line": 32,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        164
+                    ],
+                    "inheritance": {
+                        "file": "AbstractCounterDataSource"
+                    }
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { lastValueFrom } from 'rxjs';\r\n\r\nimport { HttpClient } from '@angular/common/http';\r\nimport { inject, Injectable } from '@angular/core';\r\n\r\nimport { environment } from '../../../../environments/environment';\r\nimport { AbstractCounterDataSource } from './abstract.count.data.source';\r\n\r\nexport const getCounterEndPoint = `${environment.backend}/count`;\r\nexport const increaseCounterEndPoint = `${environment.backend}/count/increase`;\r\nexport const decreaseCounterEndPoint = `${environment.backend}/count/decrease`;\r\nexport const resetCounterEndPoint = `${environment.backend}/count/reset`;\r\n\r\n@Injectable()\r\nexport class DefaultCounterDataSource extends AbstractCounterDataSource {\r\n  private readonly http = inject(HttpClient);\r\n\r\n  override async getCounter(): Promise<string> {\r\n    return lastValueFrom(this.http.get<string>(getCounterEndPoint));\r\n  }\r\n  override async increaseCounter(): Promise<string> {\r\n    return lastValueFrom(\r\n      this.http.patch<string>(increaseCounterEndPoint, undefined)\r\n    );\r\n  }\r\n  override async decreaseCounter(): Promise<string> {\r\n    return lastValueFrom(\r\n      this.http.patch<string>(decreaseCounterEndPoint, undefined)\r\n    );\r\n  }\r\n\r\n  override resetCounter(): Promise<string> {\r\n    throw new Error('not implemented yet');\r\n  }\r\n}\r\n",
+            "extends": [
+                "AbstractCounterDataSource"
+            ],
+            "type": "injectable"
+        },
+        {
+            "name": "DefaultCounterRepository",
+            "id": "injectable-DefaultCounterRepository-682cd6241014a9183f81381b17167ddd45930fcc8c1fea03660ae02f4a45b3891aec8abdf15e270cb6408bef6f4ee48151fb506fd3bfb4cbe4b3784d48954c07",
+            "file": "src/app/features/count/repository/default.counter.repository.ts",
+            "properties": [
+                {
+                    "name": "dataSource",
+                    "defaultValue": "inject(AbstractCounterDataSource)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "decreaseCounter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<NumberEntity | Error>",
+                    "typeParameters": [],
+                    "line": 33,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        164,
+                        134
+                    ],
+                    "inheritance": {
+                        "file": "AbstractCounterRepository"
+                    }
+                },
+                {
+                    "name": "getCounter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<NumberEntity | Error>",
+                    "typeParameters": [],
+                    "line": 11,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        164,
+                        134
+                    ],
+                    "inheritance": {
+                        "file": "AbstractCounterRepository"
+                    }
+                },
+                {
+                    "name": "increaseCounter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<NumberEntity | Error>",
+                    "typeParameters": [],
+                    "line": 22,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        164,
+                        134
+                    ],
+                    "inheritance": {
+                        "file": "AbstractCounterRepository"
+                    }
+                },
+                {
+                    "name": "resetCounter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<NumberEntity | Error>",
+                    "typeParameters": [],
+                    "line": 44,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        164
+                    ],
+                    "inheritance": {
+                        "file": "AbstractCounterRepository"
+                    }
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { inject, Injectable } from '@angular/core';\r\n\r\nimport { NumberEntity } from '../../../core/entities/number.entity';\r\nimport { AbstractCounterDataSource } from '../data-source/abstract.count.data.source';\r\nimport { AbstractCounterRepository } from './abstract.counter.repository';\r\n\r\n@Injectable()\r\nexport class DefaultCounterRepository extends AbstractCounterRepository {\r\n  private readonly dataSource = inject(AbstractCounterDataSource);\r\n\r\n  override async getCounter(): Promise<NumberEntity | Error> {\r\n    try {\r\n      const raw = await this.dataSource.getCounter();\r\n      return NumberEntity.fromJson(raw);\r\n    } catch (error: any) {\r\n      return new Error(\r\n        error.statusText ?? error.message ?? 'Etwas ist schief gelaufen'\r\n      );\r\n    }\r\n  }\r\n\r\n  override async increaseCounter(): Promise<NumberEntity | Error> {\r\n    try {\r\n      const raw = await this.dataSource.increaseCounter();\r\n      return NumberEntity.fromJson(raw);\r\n    } catch (error: any) {\r\n      return new Error(\r\n        error.statusText ?? error.message ?? 'Etwas ist schief gelaufen'\r\n      );\r\n    }\r\n  }\r\n\r\n  override async decreaseCounter(): Promise<NumberEntity | Error> {\r\n    try {\r\n      const raw = await this.dataSource.decreaseCounter();\r\n      return NumberEntity.fromJson(raw);\r\n    } catch (error: any) {\r\n      return new Error(\r\n        error.statusText ?? error.message ?? 'Etwas ist schief gelaufen'\r\n      );\r\n    }\r\n  }\r\n\r\n  override resetCounter(): Promise<NumberEntity | Error> {\r\n    throw new Error('not implemented yet');\r\n  }\r\n}\r\n",
+            "extends": [
+                "AbstractCounterRepository"
+            ],
+            "type": "injectable"
+        },
+        {
+            "name": "GetCounterUseCase",
+            "id": "injectable-GetCounterUseCase-1ee59df298ea7dc9918c441c82b450984f042b70571b213c5c98c5417489a3de83dc71908feb3d8b70092e6e61eaf31926aa216d24baed69631eab979720625f",
+            "file": "src/app/features/count/use-cases/get.counter.use.case.ts",
+            "properties": [
+                {
+                    "name": "repository",
+                    "defaultValue": "inject(AbstractCounterRepository)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "execute",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 11,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { inject, Injectable } from '@angular/core';\r\n\r\nimport { NumberEntity } from '../../../core/entities/number.entity';\r\nimport { UseCase } from '../../../core/use.case.interface';\r\nimport { AbstractCounterRepository } from '../repository/abstract.counter.repository';\r\n\r\n@Injectable()\r\nexport class GetCounterUseCase implements UseCase<unknown, NumberEntity> {\r\n  private readonly repository = inject(AbstractCounterRepository);\r\n\r\n  execute() {\r\n    return this.repository.getCounter();\r\n  }\r\n}\r\n",
+            "extends": [],
+            "type": "injectable"
+        },
+        {
+            "name": "IncreaseCounterUseCase",
+            "id": "injectable-IncreaseCounterUseCase-5beaf174eeb4537811225d25d38b203dda54af40560b4303d1866e1192f7493737c8f88960be5bbf7dc669ed6b0407cc64b27ae5c095bf9030cac984805aab32",
+            "file": "src/app/features/count/use-cases/increase.counter.use.case.ts",
+            "properties": [
+                {
+                    "name": "repository",
+                    "defaultValue": "inject(AbstractCounterRepository)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "execute",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 11,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { inject, Injectable } from '@angular/core';\r\n\r\nimport { NumberEntity } from '../../../core/entities/number.entity';\r\nimport { UseCase } from '../../../core/use.case.interface';\r\nimport { AbstractCounterRepository } from '../repository/abstract.counter.repository';\r\n\r\n@Injectable()\r\nexport class IncreaseCounterUseCase implements UseCase<unknown, NumberEntity> {\r\n  private readonly repository = inject(AbstractCounterRepository);\r\n\r\n  execute() {\r\n    return this.repository.increaseCounter();\r\n  }\r\n}\r\n",
+            "extends": [],
+            "type": "injectable"
+        },
+        {
+            "name": "ResetCounterUseCase",
+            "id": "injectable-ResetCounterUseCase-daf74f0c684338624c9b2b3742f7c4b68edfad21ac36ba5f2d0c210d23f8edf79ec579ac926aa39b198861517e8ef27f197d5fb1a73910e5a5b23eb86e9cd247",
+            "file": "src/app/features/count/use-cases/reset.counter.use.case.ts",
+            "properties": [
+                {
+                    "name": "repository",
+                    "defaultValue": "inject(AbstractCounterRepository)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "execute",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<NumberEntity | Error>",
+                    "typeParameters": [],
+                    "line": 11,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { inject, Injectable } from '@angular/core';\r\n\r\nimport { NumberEntity } from '../../../core/entities/number.entity';\r\nimport { UseCase } from '../../../core/use.case.interface';\r\nimport { AbstractCounterRepository } from '../repository/abstract.counter.repository';\r\n\r\n@Injectable()\r\nexport class ResetCounterUseCase implements UseCase<undefined, NumberEntity> {\r\n  private readonly repository = inject(AbstractCounterRepository);\r\n\r\n  execute(): Promise<NumberEntity | Error> {\r\n    return this.repository.resetCounter();\r\n  }\r\n}\r\n",
+            "extends": [],
+            "type": "injectable"
+        },
+        {
+            "name": "SignInUseCase",
+            "id": "injectable-SignInUseCase-a73546a8dbd01d23931f78fcc4b04066184c8403a819ebca117d032e77c2febdaad457ea82ebc35985fb6198d467a837397316bc1ffdded5a2ddc5cf35766279",
+            "file": "src/app/features/authentication/use-cases/sign.in.use.case.ts",
+            "properties": [
+                {
+                    "name": "repository",
+                    "defaultValue": "inject(AbstractAuthenticationRepository)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "execute",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 11,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { inject, Injectable } from '@angular/core';\r\n\r\nimport { UserEntity } from '../../../core/entities/user.entity';\r\nimport { UseCase } from '../../../core/use.case.interface';\r\nimport { AbstractAuthenticationRepository } from '../repository/abstract.authentication.repository';\r\n\r\n@Injectable()\r\nexport class SignInUseCase implements UseCase<unknown, UserEntity> {\r\n  private readonly repository = inject(AbstractAuthenticationRepository);\r\n\r\n  execute() {\r\n    return this.repository.signIn();\r\n  }\r\n}\r\n",
+            "extends": [],
+            "type": "injectable"
+        },
+        {
+            "name": "SignOutUseCase",
+            "id": "injectable-SignOutUseCase-fa9cc0fbb0d420167eabf86c62c18785faa19dce4dd7ec9bef34dbdff33589340e69d037be0037548a030b3ac8a21dcea8cb7c86208bff2bf9ec3092a383e54d",
+            "file": "src/app/features/authentication/use-cases/sign.out.use.case.ts",
+            "properties": [
+                {
+                    "name": "repository",
+                    "defaultValue": "inject(AbstractAuthenticationRepository)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "execute",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 10,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { inject, Injectable } from '@angular/core';\r\n\r\nimport { UseCase } from '../../../core/use.case.interface';\r\nimport { AbstractAuthenticationRepository } from '../repository/abstract.authentication.repository';\r\n\r\n@Injectable()\r\nexport class SignOutUseCase implements UseCase<undefined, void> {\r\n  private readonly repository = inject(AbstractAuthenticationRepository);\r\n\r\n  execute() {\r\n    return this.repository.signOut();\r\n  }\r\n}\r\n",
+            "extends": [],
+            "type": "injectable"
+        }
+    ],
+    "guards": [],
+    "interceptors": [],
+    "classes": [
+        {
+            "name": "AuthenticationStateSelectors",
+            "id": "class-AuthenticationStateSelectors-8c332b448c2fed6253c46d92d88078e8f3da11882d562252150678b0899b3c33c1a5c43da79d5e353b3da405217f7f14d550ec09ca5b1e85717bd230b6bf7755",
+            "file": "src/app/state/authentication/authentication.state.selectors.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "import { Selector } from '@ngxs/store';\r\n\r\nimport { AuthenticationState } from './authentication.state';\r\nimport { AuthenticationStateModel } from './authentication.state.model';\r\n\r\nexport abstract class AuthenticationStateSelectors {\r\n  @Selector([AuthenticationState])\r\n  static currentUser({ currentUser }: AuthenticationStateModel) {\r\n    return currentUser;\r\n  }\r\n  @Selector([AuthenticationState])\r\n  static loading({ loading }: AuthenticationStateModel) {\r\n    return loading;\r\n  }\r\n}\r\n",
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [],
+            "methods": [
+                {
+                    "name": "currentUser",
+                    "args": [
+                        {
+                            "type": "AuthenticationStateModel",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "AuthenticationStateModel",
+                    "typeParameters": [],
+                    "line": 8,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "Selector",
+                            "stringifiedArguments": "['AuthenticationState']"
+                        }
+                    ],
+                    "modifierKind": [
+                        170,
+                        126
+                    ],
+                    "jsdoctags": [
+                        {
+                            "type": "AuthenticationStateModel",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "loading",
+                    "args": [
+                        {
+                            "type": "AuthenticationStateModel",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "AuthenticationStateModel",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "Selector",
+                            "stringifiedArguments": "['AuthenticationState']"
+                        }
+                    ],
+                    "modifierKind": [
+                        170,
+                        126
+                    ],
+                    "jsdoctags": [
+                        {
+                            "type": "AuthenticationStateModel",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "extends": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "CounterStateSelectors",
+            "id": "class-CounterStateSelectors-5e7a7437daa077ae45e5c744944378d7e902be490bd0066a32920de3cf7c4ac07a5d8745b5eb20dbc6170fdc5b88d2f3020175294d5f1283a0a06f79c39ac889",
+            "file": "src/app/state/count/count.state.selectors.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "import { Selector } from '@ngxs/store';\r\n\r\nimport { CounterState } from './count.state';\r\nimport { CountStateModel } from './count.state.model';\r\n\r\nexport abstract class CounterStateSelectors {\r\n  @Selector([CounterState])\r\n  static count({ count }: CountStateModel) {\r\n    return count;\r\n  }\r\n}\r\n",
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [],
+            "methods": [
+                {
+                    "name": "count",
+                    "args": [
+                        {
+                            "type": "CountStateModel",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "CountStateModel",
+                    "typeParameters": [],
+                    "line": 8,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "Selector",
+                            "stringifiedArguments": "['CounterState']"
+                        }
+                    ],
+                    "modifierKind": [
+                        170,
+                        126
+                    ],
+                    "jsdoctags": [
+                        {
+                            "type": "CountStateModel",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "extends": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "DecreaseCounterAction",
+            "id": "class-DecreaseCounterAction-c628051be01e854cd339124835450337dd9eb8a19f2c02e9fe83770e8e87b1ab4b9e325a74ed484548c19d77cadc2153b172abcc22f96fd3ddd57740925fbf61",
+            "file": "src/app/state/count/count.state.actions.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "export namespace Counter {\r\n  export class IncreaseCounterAction {\r\n    static readonly type = '[COUNT] increase current count by 1';\r\n  }\r\n  export class DecreaseCounterAction {\r\n    static readonly type = '[COUNT] decrease current count by 1';\r\n  }\r\n  export class GetCounterAction {\r\n    static readonly type = '[COUNT] get current count';\r\n  }\r\n  export class ResetCounterAction {\r\n    static readonly type = '[COUNT] reset current count';\r\n  }\r\n}\r\n",
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [
+                {
+                    "name": "type",
+                    "defaultValue": "'[COUNT] decrease current count by 1'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6,
+                    "modifierKind": [
+                        126,
+                        148
+                    ]
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "extends": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "GetCounterAction",
+            "id": "class-GetCounterAction-c628051be01e854cd339124835450337dd9eb8a19f2c02e9fe83770e8e87b1ab4b9e325a74ed484548c19d77cadc2153b172abcc22f96fd3ddd57740925fbf61",
+            "file": "src/app/state/count/count.state.actions.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "export namespace Counter {\r\n  export class IncreaseCounterAction {\r\n    static readonly type = '[COUNT] increase current count by 1';\r\n  }\r\n  export class DecreaseCounterAction {\r\n    static readonly type = '[COUNT] decrease current count by 1';\r\n  }\r\n  export class GetCounterAction {\r\n    static readonly type = '[COUNT] get current count';\r\n  }\r\n  export class ResetCounterAction {\r\n    static readonly type = '[COUNT] reset current count';\r\n  }\r\n}\r\n",
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [
+                {
+                    "name": "type",
+                    "defaultValue": "'[COUNT] get current count'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        126,
+                        148
+                    ]
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "extends": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "IncreaseCounterAction",
+            "id": "class-IncreaseCounterAction-c628051be01e854cd339124835450337dd9eb8a19f2c02e9fe83770e8e87b1ab4b9e325a74ed484548c19d77cadc2153b172abcc22f96fd3ddd57740925fbf61",
+            "file": "src/app/state/count/count.state.actions.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "export namespace Counter {\r\n  export class IncreaseCounterAction {\r\n    static readonly type = '[COUNT] increase current count by 1';\r\n  }\r\n  export class DecreaseCounterAction {\r\n    static readonly type = '[COUNT] decrease current count by 1';\r\n  }\r\n  export class GetCounterAction {\r\n    static readonly type = '[COUNT] get current count';\r\n  }\r\n  export class ResetCounterAction {\r\n    static readonly type = '[COUNT] reset current count';\r\n  }\r\n}\r\n",
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [
+                {
+                    "name": "type",
+                    "defaultValue": "'[COUNT] increase current count by 1'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
+                    "modifierKind": [
+                        126,
+                        148
+                    ]
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "extends": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "NumberEntity",
+            "id": "class-NumberEntity-1e17bb4fcbd4a96de5ee7ec4f4285174aa899d5f2bc556a1df4c658ef0eddf805cbe94d7f8ef87b67fc2af8206f227ab78721a0f558e705ecafb4ef19c3ef2af",
+            "file": "src/app/core/entities/number.entity.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "export class NumberEntity {\r\n  value? = 0;\r\n\r\n  constructor(obj: Partial<NumberEntity>) {\r\n    Object.assign(this, obj);\r\n  }\r\n\r\n  static fromJson(json: any) {\r\n    return new NumberEntity({\r\n      value: parseInt(json),\r\n    });\r\n  }\r\n\r\n  static toJson(obj: NumberEntity) {\r\n    return {\r\n      numberValue: obj.value,\r\n    };\r\n  }\r\n}\r\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "obj",
+                        "type": "Partial<NumberEntity>",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 2,
+                "jsdoctags": [
+                    {
+                        "name": "obj",
+                        "type": "Partial<NumberEntity>",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [
+                {
+                    "name": "value",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": true,
+                    "description": "",
+                    "line": 2
+                }
+            ],
+            "methods": [
+                {
+                    "name": "fromJson",
+                    "args": [
+                        {
+                            "name": "json",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "NumberEntity",
+                    "typeParameters": [],
+                    "line": 8,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        126
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "json",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "toJson",
+                    "args": [
+                        {
+                            "name": "obj",
+                            "type": "NumberEntity",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "{ numberValue: number; }",
+                    "typeParameters": [],
+                    "line": 14,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        126
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "obj",
+                            "type": "NumberEntity",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "extends": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "ResetCounterAction",
+            "id": "class-ResetCounterAction-c628051be01e854cd339124835450337dd9eb8a19f2c02e9fe83770e8e87b1ab4b9e325a74ed484548c19d77cadc2153b172abcc22f96fd3ddd57740925fbf61",
+            "file": "src/app/state/count/count.state.actions.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "export namespace Counter {\r\n  export class IncreaseCounterAction {\r\n    static readonly type = '[COUNT] increase current count by 1';\r\n  }\r\n  export class DecreaseCounterAction {\r\n    static readonly type = '[COUNT] decrease current count by 1';\r\n  }\r\n  export class GetCounterAction {\r\n    static readonly type = '[COUNT] get current count';\r\n  }\r\n  export class ResetCounterAction {\r\n    static readonly type = '[COUNT] reset current count';\r\n  }\r\n}\r\n",
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [
+                {
+                    "name": "type",
+                    "defaultValue": "'[COUNT] reset current count'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "modifierKind": [
+                        126,
+                        148
+                    ]
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "extends": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "SignInAction",
+            "id": "class-SignInAction-1c2674e49ee6cea0c9f16ee6b603ccd2bde9924773a96fa9a69ad706f037bc07e135eeaa3363010eba89006bb8357430b36055a970c5d52592015d70b3973a03",
+            "file": "src/app/state/authentication/authentication.state.actions.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "export namespace Authentication {\r\n  export class SignInAction {\r\n    static readonly type = '[AUTH] sign in user';\r\n  }\r\n  export class SignOutAction {\r\n    static readonly type = '[AUTH] sign out user';\r\n  }\r\n}\r\n",
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [
+                {
+                    "name": "type",
+                    "defaultValue": "'[AUTH] sign in user'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
+                    "modifierKind": [
+                        126,
+                        148
+                    ]
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "extends": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "SignOutAction",
+            "id": "class-SignOutAction-1c2674e49ee6cea0c9f16ee6b603ccd2bde9924773a96fa9a69ad706f037bc07e135eeaa3363010eba89006bb8357430b36055a970c5d52592015d70b3973a03",
+            "file": "src/app/state/authentication/authentication.state.actions.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "export namespace Authentication {\r\n  export class SignInAction {\r\n    static readonly type = '[AUTH] sign in user';\r\n  }\r\n  export class SignOutAction {\r\n    static readonly type = '[AUTH] sign out user';\r\n  }\r\n}\r\n",
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [
+                {
+                    "name": "type",
+                    "defaultValue": "'[AUTH] sign out user'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6,
+                    "modifierKind": [
+                        126,
+                        148
+                    ]
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "extends": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "UserEntity",
+            "id": "class-UserEntity-3488a61d3d7b06f72e502f444ec2860a0b98db079f4fd92e57eab990878a9f1dc829c575a2037a4d998ca40badcb3af5bc6b7c459f6b92c56dfc7bfaa51ca34f",
+            "file": "src/app/core/entities/user.entity.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "export class UserEntity {\r\n  name? = 'unknown';\r\n\r\n  constructor(obj: Partial<UserEntity>) {\r\n    Object.assign(this, obj);\r\n  }\r\n\r\n  static fromJson(json: any) {\r\n    return new UserEntity({\r\n      name: json.name,\r\n    });\r\n  }\r\n\r\n  static toJson(obj: UserEntity) {\r\n    return {\r\n      name: obj.name,\r\n    };\r\n  }\r\n}\r\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "obj",
+                        "type": "Partial<UserEntity>",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 2,
+                "jsdoctags": [
+                    {
+                        "name": "obj",
+                        "type": "Partial<UserEntity>",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [
+                {
+                    "name": "name",
+                    "defaultValue": "'unknown'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 2
+                }
+            ],
+            "methods": [
+                {
+                    "name": "fromJson",
+                    "args": [
+                        {
+                            "name": "json",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "UserEntity",
+                    "typeParameters": [],
+                    "line": 8,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        126
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "json",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "toJson",
+                    "args": [
+                        {
+                            "name": "obj",
+                            "type": "UserEntity",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "{ name: string; }",
+                    "typeParameters": [],
+                    "line": 14,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        126
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "obj",
+                            "type": "UserEntity",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "extends": [],
+            "hostBindings": [],
+            "hostListeners": []
+        }
+    ],
+    "directives": [],
+    "components": [
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-e725f67701b687ca989562bd0d69aaf17e8b4c3b2eae0a3a389b4baca8468845a10885f6fb3d69e69aeade0f6dda95f921b866a1652e34d9483bf4b310a9e538",
+            "file": "src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<router-outlet></router-outlet>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "RouterOutlet"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport { RouterOutlet } from '@angular/router';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  standalone: true,\r\n  imports: [RouterOutlet],\r\n  template: ` <router-outlet></router-outlet>`,\r\n})\r\nexport class AppComponent {}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": []
+        },
+        {
+            "name": "AuthenticationPage",
+            "id": "component-AuthenticationPage-7e833c36706ceeeb6ccce8edd1667232be2caacf2faff5750ee3871a4b69b746a0e322bda5008638b7a8947b0527142b3743ce8c33015b029d91b7e93c4ff8ce",
+            "file": "src/app/pages/authentication/authentication.page.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-authentication",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./authentication.page.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "loading$",
+                    "defaultValue": "inject(Store).select(\r\n    AuthenticationStateSelectors.loading\r\n  )",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22,
+                    "modifierKind": [
+                        124,
+                        148
+                    ]
+                },
+                {
+                    "name": "router",
+                    "defaultValue": "inject(Router)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                },
+                {
+                    "name": "store",
+                    "defaultValue": "inject(Store)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 26,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "signIn",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 27,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        134
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "AuthenticationStateModule",
+                    "type": "module"
+                },
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { lastValueFrom } from 'rxjs';\r\n\r\nimport { CommonModule } from '@angular/common';\r\nimport { ChangeDetectionStrategy, Component, inject } from '@angular/core';\r\nimport { Router } from '@angular/router';\r\nimport { Store } from '@ngxs/store';\r\n\r\nimport { Authentication } from '../../state/authentication/authentication.state.actions';\r\nimport { AuthenticationStateModule } from '../../state/authentication/authentication.state.module';\r\nimport { AuthenticationStateSelectors } from '../../state/authentication/authentication.state.selectors';\r\n\r\n@Component({\r\n  selector: 'app-authentication',\r\n  standalone: true,\r\n  imports: [AuthenticationStateModule, CommonModule],\r\n  templateUrl: './authentication.page.html',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class AuthenticationPage {\r\n  private readonly router = inject(Router);\r\n\r\n  protected readonly loading$ = inject(Store).select(\r\n    AuthenticationStateSelectors.loading\r\n  );\r\n\r\n  private readonly store = inject(Store);\r\n  async signIn() {\r\n    await lastValueFrom(this.store.dispatch(Authentication.SignInAction));\r\n    if (!!this.store.selectSnapshot(AuthenticationStateSelectors.currentUser)) {\r\n      this.router.navigate(['/dashboard'], { replaceUrl: true });\r\n    }\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<main class=\"flex h-svh w-full justify-center items-center flex-col\">\r\n  <div class=\"p-8 flex flex-col gap-4\">\r\n    <button\r\n      data-cy=\"signIn\"\r\n      (click)=\"signIn()\"\r\n      class=\"px-8 py-4 rounded-xl flex items-center text-xl font-bold bg-teal-600 text-white\"\r\n      [class]=\"(loading$|async) ? 'animate-pulse':''\"\r\n    >\r\n      @if(loading$|async){ ... }@else { Login }\r\n    </button>\r\n  </div>\r\n</main>\r\n"
+        },
+        {
+            "name": "CounterComponent",
+            "id": "component-CounterComponent-e68d0f158ffa3a48433e05b1397e02e837ce9aeeb4be46be108c9625937ebf4175479973f3cd49da090b89b9f8a19049c37dae23b044a4edb60e163c65adaf94",
+            "file": "src/app/pages/dashboard/components/counter/counter.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-counter",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./counter.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "decreaseCounter",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19,
+                    "required": false
+                },
+                {
+                    "name": "increaseCounter",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "required": false
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "decreaseCounter",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19,
+                    "required": false
+                },
+                {
+                    "name": "increaseCounter",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "required": false
+                },
+                {
+                    "name": "value",
+                    "defaultValue": "input<NumberEntity | null | undefined>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\r\n  ChangeDetectionStrategy,\r\n  Component,\r\n  input,\r\n  output,\r\n} from '@angular/core';\r\nimport { NumberEntity } from '../../../../core/entities/number.entity';\r\n\r\n@Component({\r\n  selector: 'app-counter',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './counter.component.html',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class CounterComponent {\r\n  value = input<NumberEntity | null | undefined>();\r\n  increaseCounter = output();\r\n  decreaseCounter = output();\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<section\r\n  class=\"w-full h-full grow flex flex-col items-center justify-center gap-16\"\r\n>\r\n  <button\r\n    data-cy=\"counter-increase\"\r\n    (click)=\"increaseCounter.emit()\"\r\n    class=\"p-4 rounded-xl flex items-center text-4xl font-bold bg-teal-600 text-white\"\r\n  >\r\n    <i class=\"material-symbols-outlined\">add</i>\r\n  </button>\r\n  <label data-cy=\"counter\" class=\"font-bold text-gray-600 text-6xl\">\r\n    COUNTER: {{ value()?.value }}\r\n  </label>\r\n  <button\r\n    data-cy=\"counter-decrease\"\r\n    (click)=\"decreaseCounter.emit()\"\r\n    class=\"p-4 rounded-xl flex items-center text-4xl font-bold bg-cyan-600 text-white\"\r\n  >\r\n    <i class=\"material-symbols-outlined\">remove</i>\r\n  </button>\r\n</section>\r\n"
+        },
+        {
+            "name": "DashboardPage",
+            "id": "component-DashboardPage-7fc98758ccc5099d0b467fc9f9ea735274d966a77d93d31db01ae40d597097e7b08e41f27e1e37ec791e59b620ccaabdab1a588f9240723b22534f2abda062df",
+            "file": "src/app/pages/dashboard/dashboard.page.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./dashboard.page.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "counter$",
+                    "defaultValue": "inject(Store).select(CounterStateSelectors.count)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 33,
+                    "modifierKind": [
+                        148
+                    ]
+                },
+                {
+                    "name": "router",
+                    "defaultValue": "inject(Router)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 31,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                },
+                {
+                    "name": "store",
+                    "defaultValue": "inject(Store)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 30,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "decreaseCounter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 42,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "increaseCounter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 39,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 35,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "resetCounter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 45,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "signOut",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 49,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "CounterStateModule",
+                    "type": "module"
+                },
+                {
+                    "name": "HeaderComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "CounterComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport {\r\n  ChangeDetectionStrategy,\r\n  Component,\r\n  inject,\r\n  OnInit,\r\n} from '@angular/core';\r\nimport { Router } from '@angular/router';\r\nimport { Store } from '@ngxs/store';\r\n\r\nimport { Authentication } from '../../state/authentication/authentication.state.actions';\r\nimport { Counter } from '../../state/count/count.state.actions';\r\nimport { CounterStateModule } from '../../state/count/count.state.module';\r\nimport { CounterStateSelectors } from '../../state/count/count.state.selectors';\r\nimport { CounterComponent } from './components/counter/counter.component';\r\nimport { HeaderComponent } from './components/header/header.component';\r\n\r\n@Component({\r\n  imports: [\r\n    CommonModule,\r\n    CounterStateModule,\r\n    HeaderComponent,\r\n    CounterComponent,\r\n  ],\r\n  standalone: true,\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  templateUrl: './dashboard.page.html',\r\n})\r\nexport class DashboardPage implements OnInit {\r\n  private readonly store = inject(Store);\r\n  private readonly router = inject(Router);\r\n\r\n  readonly counter$ = inject(Store).select(CounterStateSelectors.count);\r\n\r\n  ngOnInit(): void {\r\n    this.store.dispatch(Counter.GetCounterAction);\r\n  }\r\n\r\n  increaseCounter() {\r\n    this.store.dispatch(Counter.IncreaseCounterAction);\r\n  }\r\n  decreaseCounter() {\r\n    this.store.dispatch(Counter.DecreaseCounterAction);\r\n  }\r\n  resetCounter() {\r\n    this.store.dispatch(Counter.ResetCounterAction);\r\n  }\r\n\r\n  signOut() {\r\n    this.store.dispatch(Authentication.SignOutAction);\r\n    this.router.navigate(['/'], { replaceUrl: true });\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<main class=\"h-full w-full flex flex-col gap-16\">\r\n  <app-header (onSignOut)=\"signOut()\"></app-header>\r\n\r\n  <div class=\"h-full w-full\">\r\n    <app-counter\r\n      [value]=\"counter$|async\"\r\n      (decreaseCounter)=\"decreaseCounter()\"\r\n      (increaseCounter)=\"increaseCounter()\"\r\n    ></app-counter>\r\n  </div>\r\n</main>\r\n"
+        },
+        {
+            "name": "HeaderComponent",
+            "id": "component-HeaderComponent-f698222991141387f63049fd92e589a00e51c715b83b9181ef454f34e6f1f77ce1dd39cdb43003a771e1e912dc4b118439150d4c5d6c4a0c5c8c193839f92f3a",
+            "file": "src/app/pages/dashboard/components/header/header.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-header",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./header.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "onSignOut",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "required": false
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "onSignOut",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "required": false
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, output } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-header',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './header.component.html',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class HeaderComponent {\r\n  onSignOut = output();\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<header\r\n  class=\"w-full p-8 flex justify-center text-6xl font-bold text-white bg-teal-600 relative\"\r\n>\r\n  <label>Clean - Counter</label>\r\n  <button\r\n    data-cy=\"signOut\"\r\n    (click)=\"onSignOut.emit()\"\r\n    class=\"px-8 py-4 rounded-xl flex items-center text-xl font-bold border border-white text-white fixed right-8\"\r\n  >\r\n    Sign Out\r\n  </button>\r\n</header>\r\n"
+        }
+    ],
+    "modules": [
+        {
+            "name": "AuthenticationFeatureModule",
+            "id": "module-AuthenticationFeatureModule-23a4ce9b5521dc78c5cfbd93a6d01887c63309950a6627b1cc630ab083e10d80fbe7c2757ed00b73dad90c99b55c802933019728e17901b43790317876575b55",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/features/authentication/authentication.feature.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\n\r\nimport { AbstractAuthenticationDataSource } from './data-source/abstract.authentication.data.source';\r\nimport { DefaultAuthenticationDataSource } from './data-source/default.authentication.data.source';\r\nimport { AbstractAuthenticationRepository } from './repository/abstract.authentication.repository';\r\nimport { DefaultAuthenticationRepository } from './repository/default.authentication.repository';\r\nimport { SignInUseCase } from './use-cases/sign.in.use.case';\r\nimport { SignOutUseCase } from './use-cases/sign.out.use.case';\r\n\r\nexport type SignInRequestObject = {};\r\n\r\n@NgModule({\r\n  providers: [\r\n    SignInUseCase,\r\n    SignOutUseCase,\r\n    {\r\n      provide: AbstractAuthenticationRepository,\r\n      useClass: DefaultAuthenticationRepository,\r\n    },\r\n    {\r\n      provide: AbstractAuthenticationDataSource,\r\n      useClass: DefaultAuthenticationDataSource,\r\n    },\r\n  ],\r\n})\r\nexport class AuthenticationFeatureModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": [
+                        {
+                            "name": "SignInUseCase"
+                        },
+                        {
+                            "name": "SignOutUseCase"
+                        }
+                    ]
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AuthenticationStateModule",
+            "id": "module-AuthenticationStateModule-b9c13cb0b028211156cf3fd4e7299ade36d28b49d31e08e684a33c220f8828bd0b93ef5e67e99a77e4b4351aa16569c2a7ded384f4403d9c1eb4be2db039c517",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/state/authentication/authentication.state.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { NgxsModule } from '@ngxs/store';\r\n\r\nimport { AuthenticationFeatureModule } from '../../features/authentication/authentication.feature.module';\r\nimport { AuthenticationState } from './authentication.state';\r\n\r\n@NgModule({\r\n  imports: [\r\n    AuthenticationFeatureModule,\r\n    NgxsModule.forFeature([AuthenticationState]),\r\n  ],\r\n})\r\nexport class AuthenticationStateModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "AuthenticationFeatureModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "CounterFeatureModule",
+            "id": "module-CounterFeatureModule-9f8c6c2ce26452b6a4e152f6f41902398801d8a26a910a2a0a10ce9f179e52f2cffc01961eb7992795c1c6d6a756132bb39e7bf1b1d97e361252b4ae08c4da8c",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/features/count/count.feature.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\n\r\nimport { AbstractCounterDataSource } from './data-source/abstract.count.data.source';\r\nimport { DefaultCounterDataSource } from './data-source/default.count.data.source';\r\nimport { AbstractCounterRepository } from './repository/abstract.counter.repository';\r\nimport { DefaultCounterRepository } from './repository/default.counter.repository';\r\nimport { DecreaseCounterUseCase } from './use-cases/decrease.counter.use.case';\r\nimport { GetCounterUseCase } from './use-cases/get.counter.use.case';\r\nimport { IncreaseCounterUseCase } from './use-cases/increase.counter.use.case';\r\nimport { ResetCounterUseCase } from './use-cases/reset.counter.use.case';\r\n\r\nexport type IncreaseCountRequestObject = {};\r\nexport type DecreaseCountRequestObject = {};\r\n\r\n@NgModule({\r\n  providers: [\r\n    GetCounterUseCase,\r\n    DecreaseCounterUseCase,\r\n    IncreaseCounterUseCase,\r\n    ResetCounterUseCase,\r\n    {\r\n      provide: AbstractCounterRepository,\r\n      useClass: DefaultCounterRepository,\r\n    },\r\n    {\r\n      provide: AbstractCounterDataSource,\r\n      useClass: DefaultCounterDataSource,\r\n    },\r\n  ],\r\n})\r\nexport class CounterFeatureModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": [
+                        {
+                            "name": "DecreaseCounterUseCase"
+                        },
+                        {
+                            "name": "GetCounterUseCase"
+                        },
+                        {
+                            "name": "IncreaseCounterUseCase"
+                        },
+                        {
+                            "name": "ResetCounterUseCase"
+                        }
+                    ]
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "CounterStateModule",
+            "id": "module-CounterStateModule-47d381f1159e04d71910e9ced05a8ef8ace4ad22a4db91be9d978e6a7a9af15ea79ac6aab5149a2b58cbb28a36a2b5078258343c4e6180cf4c23402a67af8d1d",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/state/count/count.state.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { NgxsModule } from '@ngxs/store';\r\n\r\nimport { CounterFeatureModule } from '../../features/count/count.feature.module';\r\nimport { CounterState } from './count.state';\r\n\r\n@NgModule({\r\n  imports: [CounterFeatureModule, NgxsModule.forFeature([CounterState])],\r\n})\r\nexport class CounterStateModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "CounterFeatureModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "appConfig",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/app.config.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ApplicationConfig",
+                "defaultValue": "{\r\n  providers: [\r\n    provideZoneChangeDetection({ eventCoalescing: true }),\r\n    provideRouter(routes),\r\n    provideStore([], withNgxsReduxDevtoolsPlugin()),\r\n    provideHttpClient(),\r\n    importProvidersFrom([AuthenticationStateModule]),\r\n  ],\r\n}"
+            },
+            {
+                "name": "AUTHENTICATION_FEATURE_MOCK_HANDLER",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/features/authentication/_mock/authentication.feature.mock.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\r\n  http.post(signInEndPoint, async () => {\r\n    await delay(1000);\r\n    return HttpResponse.json(\r\n      new UserEntity({\r\n        name: 'John Doe',\r\n      })\r\n    );\r\n  }),\r\n  http.post(signOutEndPoint, async () => {\r\n    await delay(1000);\r\n    return HttpResponse.json({});\r\n  }),\r\n]"
+            },
+            {
+                "name": "bootstrap",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/main.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() =>\r\n  bootstrapApplication(AppComponent, appConfig).catch((err) =>\r\n    console.error(err)\r\n  )"
+            },
+            {
+                "name": "COUNT_FEATURE_MOCK_HANDLER",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/features/count/_mock/count.feature.mock.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\r\n  http.get(getCounterEndPoint, () => {\r\n    const count = localStorage.getItem('count');\r\n    let ret = count ?? '0';\r\n\r\n    if (count === undefined || count === null) {\r\n      localStorage.setItem('count', ret);\r\n    }\r\n\r\n    return HttpResponse.text(ret);\r\n  }),\r\n  http.patch(increaseCounterEndPoint, () => {\r\n    const count = localStorage.getItem('count');\r\n    let ret;\r\n    if (count === undefined || count === null) {\r\n      ret = '1';\r\n    } else {\r\n      ret = (parseInt(count) + 1).toString();\r\n    }\r\n    localStorage.setItem('count', ret);\r\n    return HttpResponse.text(ret);\r\n  }),\r\n  http.patch(decreaseCounterEndPoint, () => {\r\n    const count = localStorage.getItem('count');\r\n    let ret;\r\n    if (count === undefined || count === null) {\r\n      ret = '-1';\r\n    } else {\r\n      ret = (parseInt(count) - 1).toString();\r\n    }\r\n    localStorage.setItem('count', ret);\r\n    return HttpResponse.text(ret);\r\n  }),\r\n]"
+            },
+            {
+                "name": "decreaseCounterEndPoint",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/features/count/data-source/default.count.data.source.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "`${environment.backend}/count/decrease`"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.development.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  backend: 'api/v1',\n  useMock: true,\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.e2e.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\r\n  backend: 'api/v1',\r\n  useMock: false,\r\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  backend: 'api/v1',\n  useMock: false,\n}"
+            },
+            {
+                "name": "getCounterEndPoint",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/features/count/data-source/default.count.data.source.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "`${environment.backend}/count`"
+            },
+            {
+                "name": "increaseCounterEndPoint",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/features/count/data-source/default.count.data.source.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "`${environment.backend}/count/increase`"
+            },
+            {
+                "name": "isAuthenticated",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/core/guards/is.authenticated.guard.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => {\r\n  const store = inject(Store);\r\n  const isAuthenticated = store.selectSnapshot(\r\n    AuthenticationStateSelectors.currentUser\r\n  );\r\n  if (!isAuthenticated) return inject(Router).navigateByUrl('');\r\n  return isAuthenticated;\r\n}"
+            },
+            {
+                "name": "MOCK_HANDLER",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/main.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\r\n  ...COUNT_FEATURE_MOCK_HANDLER,\r\n  ...AUTHENTICATION_FEATURE_MOCK_HANDLER,\r\n]"
+            },
+            {
+                "name": "resetCounterEndPoint",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/features/count/data-source/default.count.data.source.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "`${environment.backend}/count/reset`"
+            },
+            {
+                "name": "signInEndPoint",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/features/authentication/data-source/default.authentication.data.source.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "`${environment.backend}/sign-in`"
+            },
+            {
+                "name": "signOutEndPoint",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/features/authentication/data-source/default.authentication.data.source.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "`${environment.backend}/sign-out`"
+            }
+        ],
+        "functions": [],
+        "typealiases": [
+            {
+                "name": "AuthenticationStateModel",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "src/app/state/authentication/authentication.state.model.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 187
+            },
+            {
+                "name": "CountStateModel",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "src/app/state/count/count.state.model.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 187
+            },
+            {
+                "name": "DecreaseCountRequestObject",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "src/app/features/count/count.feature.module.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 187
+            },
+            {
+                "name": "IncreaseCountRequestObject",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "src/app/features/count/count.feature.module.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 187
+            },
+            {
+                "name": "SignInRequestObject",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "src/app/features/authentication/authentication.feature.module.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 187
+            }
+        ],
+        "enumerations": [],
+        "groupedVariables": {
+            "src/app/app.config.ts": [
+                {
+                    "name": "appConfig",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/app.config.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ApplicationConfig",
+                    "defaultValue": "{\r\n  providers: [\r\n    provideZoneChangeDetection({ eventCoalescing: true }),\r\n    provideRouter(routes),\r\n    provideStore([], withNgxsReduxDevtoolsPlugin()),\r\n    provideHttpClient(),\r\n    importProvidersFrom([AuthenticationStateModule]),\r\n  ],\r\n}"
+                }
+            ],
+            "src/app/features/authentication/_mock/authentication.feature.mock.ts": [
+                {
+                    "name": "AUTHENTICATION_FEATURE_MOCK_HANDLER",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/features/authentication/_mock/authentication.feature.mock.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\r\n  http.post(signInEndPoint, async () => {\r\n    await delay(1000);\r\n    return HttpResponse.json(\r\n      new UserEntity({\r\n        name: 'John Doe',\r\n      })\r\n    );\r\n  }),\r\n  http.post(signOutEndPoint, async () => {\r\n    await delay(1000);\r\n    return HttpResponse.json({});\r\n  }),\r\n]"
+                }
+            ],
+            "src/main.ts": [
+                {
+                    "name": "bootstrap",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/main.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() =>\r\n  bootstrapApplication(AppComponent, appConfig).catch((err) =>\r\n    console.error(err)\r\n  )"
+                },
+                {
+                    "name": "MOCK_HANDLER",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/main.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\r\n  ...COUNT_FEATURE_MOCK_HANDLER,\r\n  ...AUTHENTICATION_FEATURE_MOCK_HANDLER,\r\n]"
+                }
+            ],
+            "src/app/features/count/_mock/count.feature.mock.ts": [
+                {
+                    "name": "COUNT_FEATURE_MOCK_HANDLER",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/features/count/_mock/count.feature.mock.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\r\n  http.get(getCounterEndPoint, () => {\r\n    const count = localStorage.getItem('count');\r\n    let ret = count ?? '0';\r\n\r\n    if (count === undefined || count === null) {\r\n      localStorage.setItem('count', ret);\r\n    }\r\n\r\n    return HttpResponse.text(ret);\r\n  }),\r\n  http.patch(increaseCounterEndPoint, () => {\r\n    const count = localStorage.getItem('count');\r\n    let ret;\r\n    if (count === undefined || count === null) {\r\n      ret = '1';\r\n    } else {\r\n      ret = (parseInt(count) + 1).toString();\r\n    }\r\n    localStorage.setItem('count', ret);\r\n    return HttpResponse.text(ret);\r\n  }),\r\n  http.patch(decreaseCounterEndPoint, () => {\r\n    const count = localStorage.getItem('count');\r\n    let ret;\r\n    if (count === undefined || count === null) {\r\n      ret = '-1';\r\n    } else {\r\n      ret = (parseInt(count) - 1).toString();\r\n    }\r\n    localStorage.setItem('count', ret);\r\n    return HttpResponse.text(ret);\r\n  }),\r\n]"
+                }
+            ],
+            "src/app/features/count/data-source/default.count.data.source.ts": [
+                {
+                    "name": "decreaseCounterEndPoint",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/features/count/data-source/default.count.data.source.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "`${environment.backend}/count/decrease`"
+                },
+                {
+                    "name": "getCounterEndPoint",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/features/count/data-source/default.count.data.source.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "`${environment.backend}/count`"
+                },
+                {
+                    "name": "increaseCounterEndPoint",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/features/count/data-source/default.count.data.source.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "`${environment.backend}/count/increase`"
+                },
+                {
+                    "name": "resetCounterEndPoint",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/features/count/data-source/default.count.data.source.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "`${environment.backend}/count/reset`"
+                }
+            ],
+            "src/environments/environment.development.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.development.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  backend: 'api/v1',\n  useMock: true,\n}"
+                }
+            ],
+            "src/environments/environment.e2e.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.e2e.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\r\n  backend: 'api/v1',\r\n  useMock: false,\r\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  backend: 'api/v1',\n  useMock: false,\n}"
+                }
+            ],
+            "src/app/core/guards/is.authenticated.guard.ts": [
+                {
+                    "name": "isAuthenticated",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/core/guards/is.authenticated.guard.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => {\r\n  const store = inject(Store);\r\n  const isAuthenticated = store.selectSnapshot(\r\n    AuthenticationStateSelectors.currentUser\r\n  );\r\n  if (!isAuthenticated) return inject(Router).navigateByUrl('');\r\n  return isAuthenticated;\r\n}"
+                }
+            ],
+            "src/app/features/authentication/data-source/default.authentication.data.source.ts": [
+                {
+                    "name": "signInEndPoint",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/features/authentication/data-source/default.authentication.data.source.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "`${environment.backend}/sign-in`"
+                },
+                {
+                    "name": "signOutEndPoint",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/features/authentication/data-source/default.authentication.data.source.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "`${environment.backend}/sign-out`"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {
+            "src/app/state/authentication/authentication.state.model.ts": [
+                {
+                    "name": "AuthenticationStateModel",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "src/app/state/authentication/authentication.state.model.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 187
+                }
+            ],
+            "src/app/state/count/count.state.model.ts": [
+                {
+                    "name": "CountStateModel",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "src/app/state/count/count.state.model.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 187
+                }
+            ],
+            "src/app/features/count/count.feature.module.ts": [
+                {
+                    "name": "DecreaseCountRequestObject",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "src/app/features/count/count.feature.module.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 187
+                },
+                {
+                    "name": "IncreaseCountRequestObject",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "src/app/features/count/count.feature.module.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 187
+                }
+            ],
+            "src/app/features/authentication/authentication.feature.module.ts": [
+                {
+                    "name": "SignInRequestObject",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "src/app/features/authentication/authentication.feature.module.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 187
+                }
+            ]
+        }
+    },
+    "routes": [],
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.config.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "appConfig",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/entities/number.entity.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "NumberEntity",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/entities/user.entity.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "UserEntity",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/guards/is.authenticated.guard.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "isAuthenticated",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/use.case.interface.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "UseCase",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/authentication/_mock/authentication.feature.mock.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "AUTHENTICATION_FEATURE_MOCK_HANDLER",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/authentication/data-source/abstract.authentication.data.source.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "AbstractAuthenticationDataSource",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/authentication/data-source/default.authentication.data.source.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "DefaultAuthenticationDataSource",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/authentication/data-source/default.authentication.data.source.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "signInEndPoint",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/authentication/data-source/default.authentication.data.source.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "signOutEndPoint",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/authentication/repository/abstract.authentication.repository.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "AbstractAuthenticationRepository",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/authentication/repository/default.authentication.repository.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "DefaultAuthenticationRepository",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/authentication/use-cases/sign.in.use.case.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "SignInUseCase",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/authentication/use-cases/sign.out.use.case.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "SignOutUseCase",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/count/_mock/count.feature.mock.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "COUNT_FEATURE_MOCK_HANDLER",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/count/data-source/abstract.count.data.source.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "AbstractCounterDataSource",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/count/data-source/default.count.data.source.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "DefaultCounterDataSource",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/count/data-source/default.count.data.source.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "decreaseCounterEndPoint",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/count/data-source/default.count.data.source.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "getCounterEndPoint",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/count/data-source/default.count.data.source.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "increaseCounterEndPoint",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/count/data-source/default.count.data.source.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "resetCounterEndPoint",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/count/repository/abstract.counter.repository.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "AbstractCounterRepository",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/count/repository/default.counter.repository.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "DefaultCounterRepository",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/count/use-cases/decrease.counter.use.case.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "DecreaseCounterUseCase",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/count/use-cases/get.counter.use.case.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "GetCounterUseCase",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/count/use-cases/increase.counter.use.case.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "IncreaseCounterUseCase",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/features/count/use-cases/reset.counter.use.case.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "ResetCounterUseCase",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/authentication/authentication.page.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AuthenticationPage",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/dashboard/components/counter/counter.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CounterComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/dashboard/components/header/header.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HeaderComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/dashboard/dashboard.page.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DashboardPage",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/authentication/authentication.state.actions.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "SignInAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/authentication/authentication.state.actions.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "SignOutAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/authentication/authentication.state.selectors.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "AuthenticationStateSelectors",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/authentication/authentication.state.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "AuthenticationState",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/count/count.state.actions.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "DecreaseCounterAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/count/count.state.actions.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "GetCounterAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/count/count.state.actions.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "IncreaseCounterAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/count/count.state.actions.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "ResetCounterAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/count/count.state.selectors.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "CounterStateSelectors",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/count/count.state.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "CounterState",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.development.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.e2e.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/main.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "bootstrap",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/main.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "MOCK_HANDLER",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}
