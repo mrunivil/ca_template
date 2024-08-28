@@ -1,5 +1,3 @@
-import { lastValueFrom } from 'rxjs';
-
 import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
@@ -48,8 +46,8 @@ export class DashboardPage implements OnInit {
     this.store.dispatch(Counter.ResetCounterAction);
   }
 
-  async signOut() {
-    await lastValueFrom(this.store.dispatch(Authentication.SignOutAction));
-    // this.router.navigate(['/'], { replaceUrl: true });
+  signOut() {
+    this.store.dispatch(Authentication.SignOutAction);
+    this.router.navigate(['/'], { replaceUrl: true });
   }
 }
