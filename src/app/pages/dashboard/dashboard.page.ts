@@ -11,14 +11,19 @@ import { Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 
 import { Authentication } from '../../state/authentication/authentication.state.actions';
-import { Count } from '../../state/count/count.state.actions';
-import { CountStateModule } from '../../state/count/count.state.module';
-import { CountStateSelectors } from '../../state/count/count.state.selectors';
+import { Counter } from '../../state/count/count.state.actions';
+import { CounterStateModule } from '../../state/count/count.state.module';
+import { CounterStateSelectors } from '../../state/count/count.state.selectors';
 import { CounterComponent } from './components/counter/counter.component';
 import { HeaderComponent } from './components/header/header.component';
 
 @Component({
-  imports: [CommonModule, CountStateModule, HeaderComponent, CounterComponent],
+  imports: [
+    CommonModule,
+    CounterStateModule,
+    HeaderComponent,
+    CounterComponent,
+  ],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './dashboard.page.html',
@@ -27,21 +32,24 @@ export class DashboardPage implements OnInit {
   private readonly store = inject(Store);
   private readonly router = inject(Router);
 
-  readonly counter$ = inject(Store).select(CountStateSelectors.count);
+  readonly counter$ = inject(Store).select(CounterStateSelectors.count);
 
   ngOnInit(): void {
-    this.store.dispatch(Count.GetCountAction);
+    this.store.dispatch(Counter.GetCounterAction);
   }
 
-  increaseCount() {
-    this.store.dispatch(Count.IncreaseCountAction);
+  increaseCounter() {
+    this.store.dispatch(Counter.IncreaseCounterAction);
   }
-  decreaseCount() {
-    this.store.dispatch(Count.DecreaseCountAction);
+  decreaseCounter() {
+    this.store.dispatch(Counter.DecreaseCounterAction);
+  }
+  resetCounter() {
+    this.store.dispatch(Counter.ResetCounterAction);
   }
 
   async signOut() {
     await lastValueFrom(this.store.dispatch(Authentication.SignOutAction));
-    this.router.navigate(['/'], { replaceUrl: true });
+    // this.router.navigate(['/'], { replaceUrl: true });
   }
 }

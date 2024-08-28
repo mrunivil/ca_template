@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { NgxsModule } from '@ngxs/store';
 
 import { CounterFeatureModule } from '../../features/count/count.feature.module';
-import { CountState } from './count.state';
+import { CounterState } from './count.state';
 
 @NgModule({
-  imports: [CounterFeatureModule, NgxsModule.forFeature([CountState])],
+  imports: [CounterFeatureModule, NgxsModule.forFeature([CounterState])],
 })
-export class CountStateModule {}
+export class CounterStateModule {}

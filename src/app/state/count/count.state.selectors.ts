@@ -1,10 +1,10 @@
 import { Selector } from '@ngxs/store';
 
-import { CountState } from './count.state';
+import { CounterState } from './count.state';
 import { CountStateModel } from './count.state.model';
 
-export abstract class CountStateSelectors {
-  @Selector([CountState])
+export abstract class CounterStateSelectors {
+  @Selector([CounterState])
   static count({ count }: CountStateModel) {
     return count;
   }

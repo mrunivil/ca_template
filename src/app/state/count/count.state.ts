@@ -4,9 +4,8 @@ import { Action, State, StateContext } from '@ngxs/store';
 import { DecreaseCounterUseCase } from '../../features/count/use-cases/decrease.counter.use.case';
 import { GetCounterUseCase } from '../../features/count/use-cases/get.counter.use.case';
 import { IncreaseCounterUseCase } from '../../features/count/use-cases/increase.counter.use.case';
-import { Count } from './count.state.actions';
+import { Counter } from './count.state.actions';
 import { CountStateModel } from './count.state.model';
-import { CountStateModule } from './count.state.module';
 
 @State<CountStateModel>({
   name: 'count',
@@ -14,13 +13,13 @@ import { CountStateModule } from './count.state.module';
     count: { value: 0 },
   },
 })
-@Injectable({ providedIn: CountStateModule })
-export class CountState {
+@Injectable()
+export class CounterState {
   private readonly getCountUseCase = inject(GetCounterUseCase);
   private readonly increaseCountUseCaseoid = inject(IncreaseCounterUseCase);
   private readonly decreaseCountUseCaseoid = inject(DecreaseCounterUseCase);
 
-  @Action(Count.GetCountAction)
+  @Action(Counter.GetCounterAction)
   async getCount({ patchState }: StateContext<CountStateModel>) {
     const ret = await this.getCountUseCase.execute();
 
@@ -33,7 +32,7 @@ export class CountState {
     }
   }
 
-  @Action(Count.IncreaseCountAction)
+  @Action(Counter.IncreaseCounterAction)
   async increaseCount({ patchState }: StateContext<CountStateModel>) {
     const ret = await this.increaseCountUseCaseoid.execute();
 
@@ -46,7 +45,7 @@ export class CountState {
     }
   }
 
-  @Action(Count.DecreaseCountAction)
+  @Action(Counter.DecreaseCounterAction)
   async decreaseCount({ patchState }: StateContext<CountStateModel>) {
     const ret = await this.decreaseCountUseCaseoid.execute();
 

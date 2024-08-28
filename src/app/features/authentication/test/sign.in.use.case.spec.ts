@@ -1,11 +1,11 @@
+// Other imports
+import { HttpClient, provideHttpClient } from '@angular/common/http';
 import {
   HttpTestingController,
   provideHttpClientTesting,
 } from '@angular/common/http/testing';
-
-// Other imports
-import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
+
 import { AuthenticationFeatureModule } from '../authentication.feature.module';
 import { AbstractAuthenticationDataSource } from '../data-source/abstract.authentication.data.source';
 import { signInEndPoint } from '../data-source/default.authentication.data.source';

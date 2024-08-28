@@ -7,6 +7,7 @@ import { DefaultCounterRepository } from './repository/default.counter.repositor
 import { DecreaseCounterUseCase } from './use-cases/decrease.counter.use.case';
 import { GetCounterUseCase } from './use-cases/get.counter.use.case';
 import { IncreaseCounterUseCase } from './use-cases/increase.counter.use.case';
+import { ResetCounterUseCase } from './use-cases/reset.counter.use.case';
 
 export type IncreaseCountRequestObject = {};
 export type DecreaseCountRequestObject = {};
@@ -16,6 +17,7 @@ export type DecreaseCountRequestObject = {};
     GetCounterUseCase,
     DecreaseCounterUseCase,
     IncreaseCounterUseCase,
+    ResetCounterUseCase,
     {
       provide: AbstractCounterRepository,
       useClass: DefaultCounterRepository,
