@@ -14,7 +14,6 @@ import { AuthenticationStateSelectors } from '../../state/authentication/authent
   standalone: true,
   imports: [AuthenticationStateModule, CommonModule],
   templateUrl: './authentication.page.html',
-  styleUrl: './authentication.page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthenticationPage {

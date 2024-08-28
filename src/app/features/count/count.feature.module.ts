@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 
-import { AbstractCountDataSource } from './data-source/abstract.count.data.source';
-import { DefaultCountDataSource } from './data-source/default.count.data.source';
-import { AbstractCountRepository } from './repository/abstract.count.repository';
-import { DefaultCountRepository } from './repository/default.count.repository';
+import { AbstractCounterDataSource } from './data-source/abstract.count.data.source';
+import { DefaultCounterDataSource } from './data-source/default.count.data.source';
+import { AbstractCounterRepository } from './repository/abstract.counter.repository';
+import { DefaultCounterRepository } from './repository/default.counter.repository';
 import { DecreaseCounterUseCase } from './use-cases/decrease.counter.use.case';
 import { GetCounterUseCase } from './use-cases/get.counter.use.case';
 import { IncreaseCounterUseCase } from './use-cases/increase.counter.use.case';
@@ -17,13 +17,13 @@ export type DecreaseCountRequestObject = {};
     DecreaseCounterUseCase,
     IncreaseCounterUseCase,
     {
-      provide: AbstractCountRepository,
-      useClass: DefaultCountRepository,
+      provide: AbstractCounterRepository,
+      useClass: DefaultCounterRepository,
     },
     {
-      provide: AbstractCountDataSource,
-      useClass: DefaultCountDataSource,
+      provide: AbstractCounterDataSource,
+      useClass: DefaultCounterDataSource,
     },
   ],
 })
-export class CountFeatureModule {}
+export class CounterFeatureModule {}

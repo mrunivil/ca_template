@@ -4,26 +4,32 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 
 import { environment } from '../../../../environments/environment';
-import { AbstractCountDataSource } from './abstract.count.data.source';
+import { AbstractCounterDataSource } from './abstract.count.data.source';
 
-export const getCountEndPoint = `${environment.backend}/count`;
-export const increaseCountEndPoint = `${environment.backend}/count/increase`;
-export const decreaseCountEndPoint = `${environment.backend}/count/decrease`;
+export const getCounterEndPoint = `${environment.backend}/count`;
+export const increaseCounterEndPoint = `${environment.backend}/count/increase`;
+export const decreaseCounterEndPoint = `${environment.backend}/count/decrease`;
+export const resetCounterEndPoint = `${environment.backend}/count/reset`;
+
 @Injectable()
-export class DefaultCountDataSource extends AbstractCountDataSource {
+export class DefaultCounterDataSource extends AbstractCounterDataSource {
   private readonly http = inject(HttpClient);
 
-  override async getCount(): Promise<string> {
-    return lastValueFrom(this.http.get<string>(getCountEndPoint));
+  override async getCounter(): Promise<string> {
+    return lastValueFrom(this.http.get<string>(getCounterEndPoint));
   }
-  override async increaseCount(): Promise<string> {
+  override async increaseCounter(): Promise<string> {
     return lastValueFrom(
-      this.http.patch<string>(increaseCountEndPoint, undefined)
+      this.http.patch<string>(increaseCounterEndPoint, undefined)
     );
   }
-  override async decreaseCount(): Promise<string> {
+  override async decreaseCounter(): Promise<string> {
     return lastValueFrom(
-      this.http.patch<string>(decreaseCountEndPoint, undefined)
+      this.http.patch<string>(decreaseCounterEndPoint, undefined)
     );
+  }
+
+  override resetCounter(): Promise<string> {
+    throw new Error('not implemented yet');
   }
 }

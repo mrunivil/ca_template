@@ -5,10 +5,10 @@ import { UseCase } from '../../../core/use.case.interface';
 import { AbstractCounterRepository } from '../repository/abstract.counter.repository';
 
 @Injectable()
-export class DecreaseCounterUseCase implements UseCase<unknown, NumberEntity> {
+export class ResetCounterUseCase implements UseCase<undefined, NumberEntity> {
   private readonly repository = inject(AbstractCounterRepository);
 
-  execute() {
-    return this.repository.decreaseCounter();
+  execute(): Promise<NumberEntity | Error> {
+    return this.repository.resetCounter();
   }
 }

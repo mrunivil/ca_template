@@ -4,9 +4,10 @@ import {
   provideHttpClientTesting,
 } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+
 import { NumberEntity } from '../../../core/entities/number.entity';
-import { CountFeatureModule } from '../count.feature.module';
-import { decreaseCountEndPoint } from '../data-source/default.count.data.source';
+import { CounterFeatureModule } from '../count.feature.module';
+import { decreaseCounterEndPoint } from '../data-source/default.count.data.source';
 import { DecreaseCounterUseCase } from '../use-cases/decrease.counter.use.case';
 
 describe('Decrease Counter Feature', () => {
@@ -18,7 +19,7 @@ describe('Decrease Counter Feature', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [provideHttpClient(), provideHttpClientTesting()],
-      imports: [CountFeatureModule],
+      imports: [CounterFeatureModule],
     });
     httpClient = TestBed.inject(HttpClient);
     httpTestingController = TestBed.inject(HttpTestingController);
@@ -30,8 +31,8 @@ describe('Decrease Counter Feature', () => {
       expect(res instanceof NumberEntity).toBeTrue();
       expect((res as NumberEntity).value).toBe(5);
     });
-    const req = httpTestingController.expectOne(decreaseCountEndPoint);
-    expect(req.request.url).toContain(decreaseCountEndPoint);
+    const req = httpTestingController.expectOne(decreaseCounterEndPoint);
+    expect(req.request.url).toContain(decreaseCounterEndPoint);
     expect(req.request.method).toBe('PATCH');
     req.flush('5');
     httpTestingController.verify();
@@ -41,8 +42,8 @@ describe('Decrease Counter Feature', () => {
     decrease.execute().then((res) => {
       expect(res instanceof Error).toBeTrue();
     });
-    const req = httpTestingController.expectOne(decreaseCountEndPoint);
-    expect(req.request.url).toContain(decreaseCountEndPoint);
+    const req = httpTestingController.expectOne(decreaseCounterEndPoint);
+    expect(req.request.url).toContain(decreaseCounterEndPoint);
     expect(req.request.method).toBe('PATCH');
     req.flush('Error occurred', { status: 500, statusText: 'internal Error' });
     httpTestingController.verify();

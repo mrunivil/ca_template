@@ -1,13 +1,13 @@
 import { http, HttpResponse } from 'msw';
 
 import {
-  decreaseCountEndPoint,
-  getCountEndPoint,
-  increaseCountEndPoint,
+  decreaseCounterEndPoint,
+  getCounterEndPoint,
+  increaseCounterEndPoint,
 } from '../data-source/default.count.data.source';
 
 export const COUNT_FEATURE_MOCK_HANDLER = [
-  http.get(getCountEndPoint, () => {
+  http.get(getCounterEndPoint, () => {
     const count = localStorage.getItem('count');
     let ret = count ?? '0';
 
@@ -17,7 +17,7 @@ export const COUNT_FEATURE_MOCK_HANDLER = [
 
     return HttpResponse.text(ret);
   }),
-  http.patch(increaseCountEndPoint, () => {
+  http.patch(increaseCounterEndPoint, () => {
     const count = localStorage.getItem('count');
     let ret;
     if (count === undefined || count === null) {
@@ -28,7 +28,7 @@ export const COUNT_FEATURE_MOCK_HANDLER = [
     localStorage.setItem('count', ret);
     return HttpResponse.text(ret);
   }),
-  http.patch(decreaseCountEndPoint, () => {
+  http.patch(decreaseCounterEndPoint, () => {
     const count = localStorage.getItem('count');
     let ret;
     if (count === undefined || count === null) {
