@@ -5,9 +5,9 @@ import {
 } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
-import { NumberEntity } from '../../../core/entities/number.entity';
 import { CounterFeatureModule } from '../count.feature.module';
 import { getCounterEndPoint } from '../data-source/default.count.data.source';
+import { NumberEntity } from '../entities/number.entity';
 import { GetCounterUseCase } from '../use-cases/get.counter.use.case';
 
 describe('Get Counter Feature', () => {

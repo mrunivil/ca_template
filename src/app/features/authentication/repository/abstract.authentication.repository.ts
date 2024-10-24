@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { UserEntity } from '../../../core/entities/user.entity';
 import { SignInRequestObject } from '../authentication.feature.module';
+import { UserEntity } from '../entities/user.entity';
 
 @Injectable()
 export abstract class AbstractAuthenticationRepository {

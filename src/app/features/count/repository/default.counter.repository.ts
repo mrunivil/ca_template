@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 
-import { NumberEntity } from '../../../core/entities/number.entity';
 import { AbstractCounterDataSource } from '../data-source/abstract.count.data.source';
+import { NumberEntity } from '../entities/number.entity';
 import { AbstractCounterRepository } from './abstract.counter.repository';
 
 @Injectable()
@@ -14,7 +14,7 @@ export class DefaultCounterRepository extends AbstractCounterRepository {
       return NumberEntity.fromJson(raw);
     } catch (error: any) {
       return new Error(
-        error.statusText ?? error.message ?? 'Etwas ist schief gelaufen'
+        error.statusText ?? error.message ?? 'Etwas ist schief gelaufen',
       );
     }
   }
@@ -25,7 +25,7 @@ export class DefaultCounterRepository extends AbstractCounterRepository {
       return NumberEntity.fromJson(raw);
     } catch (error: any) {
       return new Error(
-        error.statusText ?? error.message ?? 'Etwas ist schief gelaufen'
+        error.statusText ?? error.message ?? 'Etwas ist schief gelaufen',
       );
     }
   }
@@ -36,7 +36,7 @@ export class DefaultCounterRepository extends AbstractCounterRepository {
       return NumberEntity.fromJson(raw);
     } catch (error: any) {
       return new Error(
-        error.statusText ?? error.message ?? 'Etwas ist schief gelaufen'
+        error.statusText ?? error.message ?? 'Etwas ist schief gelaufen',
       );
     }
   }

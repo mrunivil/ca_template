@@ -4,7 +4,8 @@ import {
   input,
   output,
 } from '@angular/core';
-import { NumberEntity } from '../../../../core/entities/number.entity';
+
+import { NumberEntity } from '../../../../features/count/entities/number.entity';
 
 @Component({
   selector: 'app-counter',

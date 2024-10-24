@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 
-import { UserEntity } from '../../../core/entities/user.entity';
 import { AbstractAuthenticationDataSource } from '../data-source/abstract.authentication.data.source';
+import { UserEntity } from '../entities/user.entity';
 import { AbstractAuthenticationRepository } from './abstract.authentication.repository';
 
 @Injectable()
@@ -14,7 +14,7 @@ export class DefaultAuthenticationRepository extends AbstractAuthenticationRepos
       return UserEntity.fromJson(raw);
     } catch (error: any) {
       return new Error(
-        error.statusText ?? error.message ?? 'Etwas ist schief gelaufen'
+        error.statusText ?? error.message ?? 'Etwas ist schief gelaufen',
       );
     }
   }
@@ -24,7 +24,7 @@ export class DefaultAuthenticationRepository extends AbstractAuthenticationRepos
       return await this.dataSource.signOut();
     } catch (error: any) {
       return new Error(
-        error.statusText ?? error.message ?? 'Etwas ist schief gelaufen'
+        error.statusText ?? error.message ?? 'Etwas ist schief gelaufen',
       );
     }
   }

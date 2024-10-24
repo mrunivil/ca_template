@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 
-import { UserEntity } from '../../../core/entities/user.entity';
 import { UseCase } from '../../../core/use.case.interface';
+import { UserEntity } from '../entities/user.entity';
 import { AbstractAuthenticationRepository } from '../repository/abstract.authentication.repository';
 
 @Injectable()

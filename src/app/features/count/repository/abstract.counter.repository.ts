@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { NumberEntity } from '../../../core/entities/number.entity';
+import { NumberEntity } from '../entities/number.entity';
 
 @Injectable()
 export abstract class AbstractCounterRepository {

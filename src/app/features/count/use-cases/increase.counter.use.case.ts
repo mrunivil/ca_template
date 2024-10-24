@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 
-import { NumberEntity } from '../../../core/entities/number.entity';
 import { UseCase } from '../../../core/use.case.interface';
+import { NumberEntity } from '../entities/number.entity';
 import { AbstractCounterRepository } from '../repository/abstract.counter.repository';
 
 @Injectable()
